@@ -1,3 +1,5 @@
+package Produtos;
+
 public class Cosmeticos extends Produtos implements Desconto {
 
 

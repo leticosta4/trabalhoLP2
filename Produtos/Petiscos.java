@@ -1,3 +1,4 @@
+package Produtos;
 
 public class Petiscos extends Produtos implements Desconto {
 

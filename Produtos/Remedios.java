@@ -1,3 +1,5 @@
+package Produtos;
+
 public abstract class Remedios extends Produtos implements Tarja, Desconto {
 
 
