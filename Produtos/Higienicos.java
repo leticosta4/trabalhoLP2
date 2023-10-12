@@ -9,6 +9,7 @@ public class Higienicos extends Produtos implements Desconto {
     public Higienicos(String nome, double preco, int estoque, String dataValidade, String fabricante, int tamPacote) {
         super(nome, preco, estoque, dataValidade, fabricante);
         this.tamPacote = tamPacote;
+
     }
 
     public int getTamPacote() {
@@ -19,6 +20,10 @@ public class Higienicos extends Produtos implements Desconto {
         this.tamPacote = tamPacote;
     }
 
+
+    public double calcPreco(){
+        return this.getPreco() * this.tamPacote;
+    }
     @Override
     public void setDesconto() {
 
