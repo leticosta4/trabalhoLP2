@@ -9,7 +9,7 @@ public class Higienicos extends Produtos implements Desconto {
     public Higienicos(String nome, double preco, int estoque, String dataValidade, String fabricante, int tamPacote) {
         super(nome, preco, estoque, dataValidade, fabricante);
         this.tamPacote = tamPacote;
-
+        this.setPreco(calcPreco());
     }
 
     public int getTamPacote() {
