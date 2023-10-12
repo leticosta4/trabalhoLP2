@@ -9,7 +9,6 @@ public abstract class Remedios extends Produtos implements Tarja, Desconto {
 
     @Override
     public void setDesconto() {
-
     }
     @Override
     public void setTarja(){
