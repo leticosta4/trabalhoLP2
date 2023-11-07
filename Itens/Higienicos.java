@@ -25,7 +25,7 @@ public class Higienicos extends Produtos implements Desconto {
         return this.getPreco() * this.tamPacote;
     }
     @Override
-    public void setDesconto() {
-
+    public double setDesconto() {
+        return this.getPreco() / 1.15;
     }
 }

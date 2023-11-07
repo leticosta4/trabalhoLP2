@@ -2,7 +2,6 @@ package Itens;
 
 public class Cosmeticos extends Produtos implements Desconto {
 
-
     private boolean resistenciaAgua;
     private String cor;
 
@@ -10,6 +9,8 @@ public class Cosmeticos extends Produtos implements Desconto {
         super(nome, preco, estoque, dataValidade, fabricante);
         this.resistenciaAgua = resistenciaAgua;
         this.cor = cor;
+        if(resistenciaAgua) this.setPreco((setDesconto() * this.getPreco()) * 1.15);
+        else this.setPreco((setDesconto() * this.getPreco()));
     }
 
     public boolean isResistenciaAgua() {
@@ -29,7 +30,8 @@ public class Cosmeticos extends Produtos implements Desconto {
     }
 
     @Override
-    public void setDesconto() {
-
+    public double setDesconto() {
+        return this.getPreco() / 1.15;
     }
+
 }

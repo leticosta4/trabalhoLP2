@@ -1,6 +1,8 @@
 package Usuarios;
 
 import Itens.Produtos;
+import Itens.Remedios;
+
 import java.util.ArrayList;
 
 
@@ -62,7 +64,13 @@ public class Cliente {
     }
 
     public void adicionarNoCarrinho(Produtos p){
-        if(p.getEstoque() >= 1) {
+        boolean podeComprar = true;
+        if(p instanceof Remedios) {
+            System.out.println("True");
+            podeComprar = verificarTarja((Remedios) p);
+        }
+        System.out.println("Pode comprar igual a: " + podeComprar);
+        if(p.getEstoque() >= 1 && podeComprar) {
             p.setEstoque(p.getEstoque() - 1);
             this.carrinhoCompras.add(p);
         }
@@ -70,7 +78,6 @@ public class Cliente {
             System.out.println("Não há produtos no estoque");
         }
     }
-
     public void listarCarrinho(){
         for (Produtos produto: carrinhoCompras
              ) {
@@ -85,6 +92,19 @@ public class Cliente {
                 carrinhoCompras.remove(i);
                 break;
             }
+        }
+    }
+
+    public boolean verificarTarja(Remedios r){
+        if(r.getTarja().equalsIgnoreCase("preto")){
+            return this.idade >= 18 && this.receita;
+        }
+
+        else if (r.getTarja().equalsIgnoreCase("vermelha")) {
+            return this.receita;
+        }
+        else{
+            return true;
         }
     }
 
