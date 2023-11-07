@@ -1,7 +1,6 @@
-package Produtos;
+package Itens;
 
-public abstract class Remedios extends Produtos implements  Desconto {
-
+public class Remedios extends Produtos implements  Desconto {
     private String tarja;
 
     public Remedios(String nome, double preco, int estoque, String dataValidade, String fabricante) {
@@ -18,5 +17,4 @@ public abstract class Remedios extends Produtos implements  Desconto {
     public void setTarja(String tarja) {
         this.tarja = tarja;
     }
-}
 }

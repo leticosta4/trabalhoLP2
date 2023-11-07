@@ -1,3 +1,5 @@
+package Usuarios;
+
 public class Funcionario {
 
     private int senha;

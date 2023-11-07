@@ -1,6 +1,9 @@
-import Produtos.Produtos;
+package Usuarios;
 
+import Itens.Produtos;
 import java.util.ArrayList;
+
+
 
 public class Cliente {
     private String nome;
@@ -59,14 +62,30 @@ public class Cliente {
     }
 
     public void adicionarNoCarrinho(Produtos p){
-        this.carrinhoCompras.add(p);
+        if(p.getEstoque() >= 1) {
+            p.setEstoque(p.getEstoque() - 1);
+            this.carrinhoCompras.add(p);
+        }
+        else{
+            System.out.println("Não há produtos no estoque");
+        }
     }
 
-    public void listarCarrinho(String nomeProduto){
+    public void listarCarrinho(){
         for (Produtos produto: carrinhoCompras
              ) {
             System.out.println(produto.getNome());
         }
-
     }
+
+    public void excluirDoCarrinho(String nomeProduto){
+        for (int i = 0; i <carrinhoCompras.size() ; i++) {
+            if(nomeProduto.equalsIgnoreCase(carrinhoCompras.get(i).getNome())){
+                carrinhoCompras.get(i).setPreco(carrinhoCompras.get(i).getEstoque() + 1);
+                carrinhoCompras.remove(i);
+                break;
+            }
+        }
+    }
+
 }
