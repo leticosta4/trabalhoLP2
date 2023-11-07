@@ -66,22 +66,20 @@ public class Cliente {
     public void adicionarNoCarrinho(Produtos p){
         boolean podeComprar = true;
         if(p instanceof Remedios) {
-            System.out.println("True");
             podeComprar = verificarTarja((Remedios) p);
         }
-        System.out.println("Pode comprar igual a: " + podeComprar);
         if(p.getEstoque() >= 1 && podeComprar) {
             p.setEstoque(p.getEstoque() - 1);
             this.carrinhoCompras.add(p);
         }
         else{
-            System.out.println("Não há produtos no estoque");
+            System.out.println("Inválido");
         }
     }
     public void listarCarrinho(){
         for (Produtos produto: carrinhoCompras
              ) {
-            System.out.println(produto.getNome());
+            System.out.printf("%s, %.2f\n", produto.getNome(),produto.getPreco());
         }
     }
 
@@ -96,7 +94,7 @@ public class Cliente {
     }
 
     public boolean verificarTarja(Remedios r){
-        if(r.getTarja().equalsIgnoreCase("preto")){
+        if(r.getTarja().equalsIgnoreCase("preta")){
             return this.idade >= 18 && this.receita;
         }
 
