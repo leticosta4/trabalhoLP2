@@ -65,12 +65,8 @@ public class Cliente {
     public void listarCarrinho(String nomeProduto){
         for (Produtos produto: carrinhoCompras
              ) {
-            System.out.println(carrinhoCompras.get(produto).getNome());
+            System.out.println(produto.getNome());
         }
 
-
-
-
     }
-
 }
