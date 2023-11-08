@@ -3,8 +3,6 @@ package Usuarios;
 public class Funcionario {
 
     private int senha;
-
-
     private String login;
 
 
@@ -28,4 +26,8 @@ public class Funcionario {
     public void setLogin(String login) {
         this.login = login;
     }
+
+
+
+
 }

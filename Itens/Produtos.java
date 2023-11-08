@@ -1,13 +1,15 @@
 package Itens;
 
-public abstract class Produtos {
+import java.util.ArrayList;
 
+public abstract class Produtos {
     private String nome;
     private double preco;
     private int estoque;
     private String dataValidade;
     private String fabricante;
 
+    private ArrayList<Produtos> ListaProdutos = new ArrayList<Produtos>();
 
     public Produtos(String nome, double preco, int estoque, String dataValidade, String fabricante) {
         this.nome = nome;
@@ -15,6 +17,7 @@ public abstract class Produtos {
         this.estoque = estoque;
         this.dataValidade = dataValidade;
         this.fabricante = fabricante;
+        this.ListaProdutos.add(this);
     }
 
     public String getNome() {
@@ -55,5 +58,13 @@ public abstract class Produtos {
 
     public void setFabricante(String fabricante) {
         this.fabricante = fabricante;
+    }
+
+    public ArrayList<Produtos> getListaProdutos() {
+        return ListaProdutos;
+    }
+
+    public void setListaProdutos(ArrayList<Produtos> listaProdutos) {
+        ListaProdutos = listaProdutos;
     }
 }
