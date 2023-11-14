@@ -77,8 +77,7 @@ public class Cliente {
         }
     }
     public void listarCarrinho(){
-        for (Produtos produto: carrinhoCompras
-             ) {
+        for (Produtos produto: carrinhoCompras) {
             System.out.printf("%s, %.2f\n", produto.getNome(),produto.getPreco());
         }
     }
