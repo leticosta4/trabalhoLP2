@@ -6,6 +6,9 @@ public class Loja {
   private String nome;
   private ArrayList<Funcionario> ListaFuncionarios = new ArrayList<Funcionario>();
   private ArrayList<Produtos> ListaProdutos = new ArrayList<Produtos>();
+  
+
+
 
 
   public Loja(){
@@ -23,7 +26,7 @@ public class Loja {
       }
     }
   }
-  
+
   public void MostrarProdutos(){
     for (Produtos produtos :ListaProdutos) {
       System.out.printf("Nome produto: %s | Preço: %.2f | Estoque: %d |\n", produtos.getNome(), produtos.getPreco(), produtos.getEstoque());

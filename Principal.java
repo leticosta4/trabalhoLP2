@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 import Itens.Higienicos;
 import Itens.Loja;
 import Itens.Produtos;
@@ -13,6 +15,50 @@ public class Principal {
         Produtos higienico01 = new Higienicos("Papel", 50, 5, "20/30/2023", "Bauduco", 2);
         let.AdicionarProduto(remedio01);
         let.AdicionarProduto(remedio02);
+        
+
+    //     int opt = 0;
+    //     Scanner ler = new Scanner(System.in);
+    //     while (opt != 6) {
+    //     System.out.println("""
+    //             1 - Adicionar produto
+    //             2 - Consultar produto
+    //             3 - Alterar produto
+    //             4 - Listar produto
+    //             5 - Remover produto
+    //             6 - Sair
+    //             """);
+    //     opt = ler.nextInt();
+    //     switch (opt) {
+    //         case 1:
+    //             let.AdicionarProduto(criarProduto());
+    //             break;
+    //         case 2:
+                
+    //             break;
+    //         case 3:
+
+    //             break;
+    //         case 4:
+
+    //             break;
+    //         case 5:
+
+    //             break;
+    //         case 6:
+
+    //             break;
+
+    //         default:
+    //         System.out.println("Erro inválido");
+    //             break;
+    //     }
+    // }
+    // ler.close();
+    // }
+
+
+
 
         // cliente01.adicionarNoCarrinho(remedio01);
         // cliente01.adicionarNoCarrinho(remedio02);

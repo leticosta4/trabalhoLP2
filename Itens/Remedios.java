@@ -8,6 +8,14 @@ public class Remedios extends Produtos implements  Desconto {
         this.tarja = tarja;
         this.setPreco(setDesconto());
     }
+
+    
+
+    public Remedios() {
+    }
+
+
+
     @Override
     public double setDesconto() {
         return this.getPreco() / 1.15;
