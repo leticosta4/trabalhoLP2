@@ -52,6 +52,11 @@ public class MenuInicial extends JFrame{
         funcionarioButton.setLocation(300,200);
     }
 
+    public void alterarFonte(){
+        this.titulo.setFont((new Font("Serif", Font.ITALIC, 36)));
+        this.
+    }
+
 }
 
 
