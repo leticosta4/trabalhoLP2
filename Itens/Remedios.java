@@ -9,12 +9,6 @@ public class Remedios extends Produtos implements  Desconto {
         this.setPreco(setDesconto());
     }
 
-    
-
-    public Remedios() {
-    }
-
-
 
     @Override
     public double setDesconto() {

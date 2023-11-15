@@ -10,7 +10,6 @@ public abstract class Produtos {
     private String dataValidade;
     private String fabricante;
 
-    private ArrayList<Produtos> ListaProdutos = new ArrayList<Produtos>();
 
     public Produtos(String nome, double preco, int estoque, String dataValidade, String fabricante) {
         this.nome = nome;
@@ -19,12 +18,6 @@ public abstract class Produtos {
         this.dataValidade = dataValidade;
         this.fabricante = fabricante;
     }
-
-    
-    public Produtos() {
-    }
-
-
 
     public String getNome() {
         return nome;
@@ -66,13 +59,6 @@ public abstract class Produtos {
         this.fabricante = fabricante;
     }
 
-    public ArrayList<Produtos> getListaProdutos() {
-        return ListaProdutos;
-    }
-
-    public void setListaProdutos(ArrayList<Produtos> listaProdutos) {
-        ListaProdutos = listaProdutos;
-    }
 
     // public Produtos criarProduto() {
     //     Scanner in = new Scanner(System.in);
