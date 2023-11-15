@@ -9,10 +9,6 @@ import Usuarios.Cliente;
 
 public class Principal {
     public static void main(String[] args) {
-        MenuInicial menu = new MenuInicial();
-        menu.setContentPane(menu.PainelInicial);
-        menu.setSize(300,150);
-        menu.setVisible(true);
         Loja let = new Loja();
         Cliente cliente01 = new Cliente("Caique", "12344321", true, true, 17);
         Produtos remedio01 = new Remedios("Tylenol", 50.0, 2, "10/05/2021", "Leticia", "branca");
@@ -20,7 +16,7 @@ public class Principal {
         Produtos higienico01 = new Higienicos("Papel", 50, 5, "20/30/2023", "Bauduco", 2);
         let.AdicionarProduto(remedio01);
         let.AdicionarProduto(remedio02);
-        
+        MenuInicial menu = new MenuInicial();
 
     //     int opt = 0;
     //     Scanner ler = new Scanner(System.in);

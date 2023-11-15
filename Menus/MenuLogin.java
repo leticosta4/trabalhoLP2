@@ -28,6 +28,10 @@ public class MenuLogin extends JFrame {
                 char[] senhaUsuario = senha.getPassword();
 
                 if(!loginValido(loginUsuario) && !senhaValida(senhaUsuario)) JOptionPane.showMessageDialog(Logar,"Login Inválido");
+                else{
+                    JOptionPane.showMessageDialog(Logar,"Login aprovado");
+
+                }
             }
         });
         voltarButton.addActionListener(new ActionListener() {
