@@ -11,10 +11,13 @@ public class MenuLogin extends JFrame {
     private JTextField Login;
     protected JPanel PainelLogin;
     private JButton Logar;
+    private JButton voltarButton;
+
 
     Funcionario teste = new Funcionario("1234", "Kaik");
 
     public MenuLogin() {
+        adicionarComponentes();
         Logar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -22,6 +25,14 @@ public class MenuLogin extends JFrame {
                 char[] senhaUsuario = senha.getPassword();
 
                 if(!loginValido(loginUsuario) && !senhaValida(senhaUsuario)) JOptionPane.showMessageDialog(Logar,"Login Inválido");
+            }
+        });
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuInicial menuInicial = new MenuInicial();
+                dispose();
+
             }
         });
     }
@@ -33,5 +44,13 @@ public class MenuLogin extends JFrame {
     boolean senhaValida(char[] senha){
         String senhaDoUsuario = new String(senha);
         return senhaDoUsuario.equalsIgnoreCase(teste.getSenha());
+    }
+
+
+    private void adicionarComponentes(){
+        this.setContentPane(this.PainelLogin);
+        this.setVisible(true);
+        this.setSize(800,640);
+        this.setLocationRelativeTo(null);
     }
 }
