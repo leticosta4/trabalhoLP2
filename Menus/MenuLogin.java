@@ -3,6 +3,7 @@ package Menus;
 import Usuarios.Funcionario;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,6 +13,8 @@ public class MenuLogin extends JFrame {
     protected JPanel PainelLogin;
     private JButton Logar;
     private JButton voltarButton;
+    private JLabel informacao;
+    private JLabel bemVindo;
 
 
     Funcionario teste = new Funcionario("1234", "Kaik");
@@ -52,5 +55,12 @@ public class MenuLogin extends JFrame {
         this.setVisible(true);
         this.setSize(800,640);
         this.setLocationRelativeTo(null);
+        alteracaoFontes();
+
+    }
+
+    private void alteracaoFontes(){
+        bemVindo.setFont(new Font("Serif", Font.BOLD,36));
+        informacao.setFont(new Font("Arial", Font.BOLD,26));
     }
 }

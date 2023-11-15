@@ -1,6 +1,7 @@
 package Menus;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,6 +11,7 @@ public class MenuInicial extends JFrame{
     private JButton clienteButton;
     public JPanel PainelInicial;
     private JButton sairButton;
+    private JLabel titulo;
 
 
     public MenuInicial(){
@@ -32,10 +34,13 @@ public class MenuInicial extends JFrame{
     }
 
     private void iniciarComponentes(){
+
+        this.titulo.setFont((new Font("Serif", Font.ITALIC, 36)));
         this.setVisible(true);
         this.setContentPane(this.PainelInicial);
-        this.setSize(800,640);
+        this.setSize(640,480);
         this.setLocationRelativeTo(null);
+        funcionarioButton.setLocation(300,200);
     }
 
 }
