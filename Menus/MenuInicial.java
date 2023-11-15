@@ -31,6 +31,15 @@ public class MenuInicial extends JFrame{
                 dispose();
             }
         });
+        clienteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(funcionarioButton, "Indo para menu do Cliente");
+                MenuCliente menuCliente = new MenuCliente();
+                dispose();
+
+            }
+        });
     }
 
     private void iniciarComponentes(){
