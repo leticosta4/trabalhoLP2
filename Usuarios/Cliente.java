@@ -5,8 +5,6 @@ import Itens.Remedios;
 
 import java.util.ArrayList;
 
-
-
 public class Cliente {
     private String nome;
     private String cpf;
@@ -63,14 +61,14 @@ public class Cliente {
         this.idade = idade;
     }
 
-    public void adicionarNoCarrinho(Produtos p){
+    public void adicionarNoCarrinho(Produtos produto){
         boolean podeComprar = true;
-        if(p instanceof Remedios) {
-            podeComprar = verificarTarja((Remedios) p);
+        if(produto instanceof Remedios) {
+            podeComprar = verificarTarja((Remedios) produto);
         }
-        if(p.getEstoque() >= 1 && podeComprar) {
-            p.setEstoque(p.getEstoque() - 1);
-            this.carrinhoCompras.add(p);
+        if(produto.getEstoque() >= 1 && podeComprar) {
+            produto.setEstoque(produto.getEstoque() - 1);
+            this.carrinhoCompras.add(produto);
         }
         else{
             System.out.println("Inválido");
@@ -92,12 +90,12 @@ public class Cliente {
         }
     }
 
-    public boolean verificarTarja(Remedios r){
-        if(r.getTarja().equalsIgnoreCase("preta")){
+    public boolean verificarTarja(Remedios remedio){
+        if(remedio.getTarja().equalsIgnoreCase("preta")){
             return this.idade >= 18 && this.receita;
         }
 
-        else if (r.getTarja().equalsIgnoreCase("vermelha")) {
+        else if (remedio.getTarja().equalsIgnoreCase("vermelha")) {
             return this.receita;
         }
         else{

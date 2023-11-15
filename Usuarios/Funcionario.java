@@ -4,19 +4,19 @@ package Usuarios;
 
 public class Funcionario {
 
-    private int senha;
+    private String senha;
     private String login;
 
-    public Funcionario(int senha, String login) {
+    public Funcionario(String senha, String login) {
         this.senha = senha;
         this.login = login;
     }
 
-    public int getSenha() {
+    public String getSenha() {
         return senha;
     }
 
-    public void setSenha(int senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
 

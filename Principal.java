@@ -4,10 +4,15 @@ import Itens.Higienicos;
 import Itens.Loja;
 import Itens.Produtos;
 import Itens.Remedios;
+import Menus.MenuInicial;
 import Usuarios.Cliente;
 
 public class Principal {
     public static void main(String[] args) {
+        MenuInicial menu = new MenuInicial();
+        menu.setContentPane(menu.PainelInicial);
+        menu.setSize(300,150);
+        menu.setVisible(true);
         Loja let = new Loja();
         Cliente cliente01 = new Cliente("Caique", "12344321", true, true, 17);
         Produtos remedio01 = new Remedios("Tylenol", 50.0, 2, "10/05/2021", "Leticia", "branca");
@@ -69,6 +74,15 @@ public class Principal {
         // cliente01.excluirDoCarrinho("papel");
         // cliente01.listarCarrinho();
         let.MostrarProdutos();
+    }
+
+    public void opcoes(){
+        System.out.println("""
+                1 - Adicionar Produtos
+                2 - Remover Produtos
+                3 - Editar Produto
+                4 - Carrinho
+                """);
     }
 
 }
