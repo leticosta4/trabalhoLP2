@@ -56,11 +56,13 @@ public class MenuLogin extends JFrame {
         this.setSize(800,640);
         this.setLocationRelativeTo(null);
         alteracaoFontes();
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     }
 
     private void alteracaoFontes(){
-        bemVindo.setFont(new Font("Serif", Font.BOLD,36));
+        bemVindo.setFont(new Font("Arial", Font.BOLD,36));
         informacao.setFont(new Font("Arial", Font.BOLD,26));
+
     }
 }
