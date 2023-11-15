@@ -35,20 +35,13 @@ public class MenuInicial extends JFrame{
 
     private void iniciarComponentes(){
 
+        this.titulo.setFont((new Font("Serif", Font.ITALIC, 36)));
         this.setVisible(true);
         this.setContentPane(this.PainelInicial);
-        this.setSize(540,380);
+        this.setSize(640,480);
         this.setLocationRelativeTo(null);
         funcionarioButton.setLocation(300,200);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        alteracaoFontes();
-
     }
-
-    private void alteracaoFontes(){
-        this.titulo.setFont((new Font("Arial", Font.BOLD, 36)));
-    }
-
 
 }
 
