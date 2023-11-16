@@ -1,5 +1,6 @@
 package Menus;
 
+import Menus.funcionarioFuncoes.MenuFuncionario;
 import Usuarios.Funcionario;
 
 import javax.swing.*;
@@ -27,7 +28,14 @@ public class MenuLogin extends JFrame {
                 String loginUsuario = Login.getText();
                 char[] senhaUsuario = senha.getPassword();
 
-                if(!loginValido(loginUsuario) && !senhaValida(senhaUsuario)) JOptionPane.showMessageDialog(Logar,"Login Inválido");
+                System.out.println(senhaUsuario);
+
+
+                if(!loginValido(loginUsuario) || (!senhaValida(senhaUsuario))) JOptionPane.showMessageDialog(Logar,"Login Inválido");
+                else {
+                    MenuFuncionario menuFuncionario = new MenuFuncionario();
+                    dispose();
+                }
             }
         });
         voltarButton.addActionListener(new ActionListener() {
@@ -46,11 +54,12 @@ public class MenuLogin extends JFrame {
 
     boolean senhaValida(char[] senha){
         String senhaDoUsuario = new String(senha);
-        return senhaDoUsuario.equalsIgnoreCase(teste.getSenha());
+        return senhaDoUsuario.equals(teste.getSenha());
     }
 
 
     private void adicionarComponentes(){
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setContentPane(this.PainelLogin);
         this.setVisible(true);
         this.setSize(800,640);

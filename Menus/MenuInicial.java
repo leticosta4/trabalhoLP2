@@ -5,16 +5,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-public class MenuInicial extends JFrame{
+public class MenuInicial extends JFrame {
     private JButton funcionarioButton;
     private JButton clienteButton;
     public JPanel PainelInicial;
     private JButton sairButton;
     private JLabel titulo;
 
-
-    public MenuInicial(){
+    public MenuInicial() {
         iniciarComponentes();
         funcionarioButton.addActionListener(new ActionListener() {
             @Override
@@ -28,6 +26,8 @@ public class MenuInicial extends JFrame{
         sairButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(funcionarioButton, "Indo para a tela de login");
+                MenuCliente menu = new MenuCliente();
                 dispose();
             }
         });
@@ -42,25 +42,19 @@ public class MenuInicial extends JFrame{
         });
     }
 
-    private void iniciarComponentes(){
-
+    private void iniciarComponentes() {
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.titulo.setFont((new Font("Serif", Font.ITALIC, 36)));
         this.setVisible(true);
         this.setContentPane(this.PainelInicial);
-        this.setSize(640,480);
+       // this.setSize(640, 480);
         this.setLocationRelativeTo(null);
-        funcionarioButton.setLocation(300,200);
+        this.pack();
     }
 
     public void alterarFonte(){
         this.titulo.setFont((new Font("Serif", Font.ITALIC, 36)));
-        this.
+        
     }
 
 }
-
-
-
-
-
-

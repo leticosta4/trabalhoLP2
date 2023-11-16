@@ -12,6 +12,7 @@ public class MenuListarProdutos extends JFrame {
     }
 
     public void adicionarComponentes(){
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setContentPane(this.painelListaProdutos);
         this.setVisible(true);
         this.setSize(640,480);

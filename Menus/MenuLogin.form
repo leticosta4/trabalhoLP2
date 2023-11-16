@@ -20,19 +20,24 @@
         </constraints>
         <properties>
           <text value=""/>
+          <visible value="true"/>
         </properties>
       </component>
       <component id="34d14" class="javax.swing.JPasswordField" binding="senha">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
+            <preferred-size width="150" height="38"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value=""/>
+        </properties>
       </component>
       <component id="63451" class="javax.swing.JLabel">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="38" height="38"/>
+          </grid>
         </constraints>
         <properties>
           <text value="Senha"/>
@@ -64,7 +69,7 @@
           <autoscrolls value="false"/>
           <horizontalAlignment value="10"/>
           <iconTextGap value="4"/>
-          <text value="Preencha os campos abaixo corretamente para efetuar login"/>
+          <text value="Preencha os campos abaixo corretamente para efetuar o login"/>
         </properties>
       </component>
       <component id="9f265" class="javax.swing.JButton" binding="Logar">

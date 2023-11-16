@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 import Itens.Higienicos;
 import Itens.Loja;
@@ -10,13 +9,12 @@ import Usuarios.Cliente;
 public class Principal {
     public static void main(String[] args) {
         Loja let = new Loja();
-        Cliente cliente01 = new Cliente("Caique", true, 19 );
+        //Cliente cliente01 = new Cliente("Caique", true, 19 );
         Produtos remedio01 = new Remedios("Tylenol", 50.0, 2, "10/05/2021", "Leticia", "branca");
         Produtos remedio02 = new Remedios("Dipirona", 100, 3, "10/20/2023", "KainanEntrepise", "preta");
-        Produtos higienico01 = new Higienicos("Papel", 50, 5, "20/30/2023", "Bauduco", 2);
+        //Produtos higienico01 = new Higienicos("Papel", 50, 5, "20/30/2023", "Bauduco", 2);
         let.AdicionarProduto(remedio01);
         let.AdicionarProduto(remedio02);
-        MenuInicial menu = new MenuInicial();
 
     //     int opt = 0;
     //     Scanner ler = new Scanner(System.in);
@@ -69,16 +67,16 @@ public class Principal {
         // System.out.println("Carrinho 2");
         // cliente01.excluirDoCarrinho("papel");
         // cliente01.listarCarrinho();
-        let.MostrarProdutos();
-    }
+    //     let.MostrarProdutos();
+    // }
 
-    public void opcoes(){
-        System.out.println("""
-                1 - Adicionar Produtos
-                2 - Remover Produtos
-                3 - Editar Produto
-                4 - Carrinho
-                """);
+    // public void opcoes(){
+    //     System.out.println("""
+    //             1 - Adicionar Produtos
+    //             2 - Remover Produtos
+    //             3 - Editar Produto
+    //             4 - Carrinho
+    //             """);
     }
 
 }

@@ -25,6 +25,7 @@ public class MenuCliente extends JFrame {
     }
 
     private void adicionarComponentes(){
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         Dimension ideal = new Dimension(800, 300);
         this.setContentPane(this.MenuCliente);
         this.setVisible(true);
@@ -32,7 +33,6 @@ public class MenuCliente extends JFrame {
         this.setSize(ideal);
         this.setLocationRelativeTo(null);
         alteracaoFontes();
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     }
 

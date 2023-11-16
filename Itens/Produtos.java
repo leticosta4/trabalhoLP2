@@ -10,12 +10,18 @@ public abstract class Produtos {
     private String dataValidade;
     private String fabricante;
 
-
     public Produtos(String nome, double preco, int estoque, String dataValidade, String fabricante) {
         this.nome = nome;
         this.preco = preco;
         this.estoque = estoque;
         this.dataValidade = dataValidade;
+        this.fabricante = fabricante;
+    }
+
+    public Produtos(String nome, double preco, int estoque, String fabricante) {
+        this.nome = nome;
+        this.preco = preco;
+        this.estoque = estoque;
         this.fabricante = fabricante;
     }
 
@@ -59,57 +65,4 @@ public abstract class Produtos {
         this.fabricante = fabricante;
     }
 
-
-    // public Produtos criarProduto() {
-    //     Scanner in = new Scanner(System.in);
-    //     String nome, fabricante, validade, tarja, dataFabricacao, cor;
-    //     int estoque, tipo, tamPacote;
-    //     double price;
-    //     boolean resistenciaAgua = false;
-        
- 
-
-    //     System.out.println("Nome do produto:");
-    //     nome = in.next();
-    //     System.out.println("Preço do produto:");
-    //     price = in.nextDouble();
-    //     System.out.println("Estoque do produto:");
-    //     estoque = in.nextInt();
-    //     System.out.println("Data de validade do produto:");
-    //     validade = in.next();
-    //     System.out.println("Fabricante do produto:");
-    //     fabricante = in.next();
-
-    //     System.out.println("""
-    //                 Qual o tipo do produto?
-    //                 1 - Remédio
-    //                 2 - Cosmético
-    //                 3 - Higiênico
-    //                 4 - Petiscos
-    //             """);
-    //     tipo = in.nextInt();
-
-    //     switch (tipo) {
-    //         case 1:
-    //             System.out.println("Qual a tarja do remédio? ");
-    //             tarja = in.next();
-    //             Remedios remedio = new Remedios(nome, price, estoque, validade, fabricante, tarja);
-    //             break;
-    //         case 2:
-    //             System.out.println("Qual a cor do produto?");
-    //             cor = in.next();
-    //             System.out.println("Tem resistência à água? [s/n]" );
-    //             resistenciaAgua = in.nextBoolean();
-                
-
-    //             break;
-    //         case 3:
-
-    //             break;
-
-    //         default:
-    //             break;
-    //     }
-    //     in.close();
-    // }
 }
