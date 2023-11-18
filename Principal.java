@@ -5,10 +5,12 @@ import Itens.Produtos;
 import Itens.Remedios;
 import Menus.MenuInicial;
 import Usuarios.Cliente;
+import Usuarios.Funcionario;
 
 public class Principal {
     public static void main(String[] args) {
         Loja let = new Loja();
+        Funcionario f01 = new Funcionario("9145", "kaik");
         //Cliente cliente01 = new Cliente("Caique", true, 19 );
         Produtos remedio01 = new Remedios("Tylenol", 50.0, 2, "10/05/2021", "Leticia", "branca");
         Produtos remedio02 = new Remedios("Dipirona", 100, 3, "10/20/2023", "KainanEntrepise", "preta");

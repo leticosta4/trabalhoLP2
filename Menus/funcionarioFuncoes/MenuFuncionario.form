@@ -1,48 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Menus.funcionarioFuncoes.MenuFuncionario">
-  <grid id="27dc6" binding="painelFuncionario" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="painelFuncionario" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="44" width="500" height="257"/>
     </constraints>
-    <properties/>
+    <properties>
+      <preferredSize width="350" height="277"/>
+    </properties>
     <border type="none"/>
     <children>
       <component id="86005" class="javax.swing.JLabel">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="122" height="51"/>
+          </grid>
         </constraints>
         <properties>
           <text value="O que deseja fazer?"/>
         </properties>
       </component>
-      <component id="28d30" class="javax.swing.JButton" binding="atualizarProdutosButton" default-binding="true">
+      <component id="18cfc" class="javax.swing.JButton" binding="sairButton" default-binding="true">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="200" height="40"/>
             <preferred-size width="250" height="40"/>
             <maximum-size width="300" height="40"/>
           </grid>
         </constraints>
         <properties>
-          <text value="Atualizar Produtos"/>
-        </properties>
-      </component>
-      <component id="f0788" class="javax.swing.JButton" binding="adicionarOuRemoverProdutosButton" default-binding="true">
-        <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <minimum-size width="300" height="40"/>
-            <preferred-size width="250" height="40"/>
-            <maximum-size width="300" height="40"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Adicionar ou Remover Produtos"/>
+          <text value="Sair"/>
         </properties>
       </component>
       <component id="b6c94" class="javax.swing.JButton" binding="listarProdutosButton" default-binding="true">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="200" height="40"/>
             <preferred-size width="250" height="40"/>
             <maximum-size width="300" height="40"/>
@@ -52,23 +44,35 @@
           <text value="Listar Produtos"/>
         </properties>
       </component>
-      <vspacer id="9e047">
+      <component id="f0788" class="javax.swing.JButton" binding="adicionarOuRemoverButton" default-binding="true">
         <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="1" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="1" height="1"/>
-            <preferred-size width="1" height="1"/>
-            <maximum-size width="1" height="1"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="200" height="40"/>
+            <preferred-size width="250" height="40"/>
+            <maximum-size width="300" height="40"/>
           </grid>
         </constraints>
-      </vspacer>
-      <component id="18cfc" class="javax.swing.JButton" binding="sairButton" default-binding="true">
-        <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
         <properties>
-          <text value="Sair"/>
+          <text value="Adicionar ou Remover "/>
         </properties>
       </component>
+      <component id="28d30" class="javax.swing.JButton" binding="atualizarProdutosButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="200" height="40"/>
+            <preferred-size width="250" height="42"/>
+            <maximum-size width="300" height="40"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Atualizar Produtos"/>
+        </properties>
+      </component>
+      <vspacer id="ac1b4">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
     </children>
   </grid>
 </form>

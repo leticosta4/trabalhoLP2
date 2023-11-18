@@ -28,10 +28,11 @@ public class MenuLogin extends JFrame {
                 String loginUsuario = Login.getText();
                 char[] senhaUsuario = senha.getPassword();
 
-                System.out.println(senhaUsuario);
-
-
-                if(!loginValido(loginUsuario) || (!senhaValida(senhaUsuario))) JOptionPane.showMessageDialog(Logar,"Login Inválido");
+                if(!loginValido(loginUsuario) || !senhaValida(senhaUsuario))
+                    if(!loginValido(loginUsuario))
+                        JOptionPane.showMessageDialog(Logar,"Login Inválido");
+                    else
+                        JOptionPane.showMessageDialog(Logar,"Senha Inválida");
                 else {
                     MenuFuncionario menuFuncionario = new MenuFuncionario();
                     dispose();
@@ -59,11 +60,11 @@ public class MenuLogin extends JFrame {
 
 
     private void adicionarComponentes(){
+        this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setContentPane(this.PainelLogin);
         this.setVisible(true);
         this.setSize(800,640);
-        this.setLocationRelativeTo(null);
         alteracaoFontes();
 
     }

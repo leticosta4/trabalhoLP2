@@ -23,14 +23,6 @@ public class MenuInicial extends JFrame {
             }
 
         });
-        sairButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(funcionarioButton, "Indo para a tela de login");
-                MenuCliente menu = new MenuCliente();
-                dispose();
-            }
-        });
         clienteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,15 +32,21 @@ public class MenuInicial extends JFrame {
 
             }
         });
+        sairButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
 
     private void iniciarComponentes() {
+        this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.titulo.setFont((new Font("Serif", Font.ITALIC, 36)));
         this.setVisible(true);
         this.setContentPane(this.PainelInicial);
        // this.setSize(640, 480);
-        this.setLocationRelativeTo(null);
         this.pack();
     }
 
