@@ -56,7 +56,6 @@ public class Loja {
                      1 - Remédio
                      2 - Cosmético
                      3 - Higiênico
-                     4 - Petiscos
                  """);
     tipo = in.nextInt();
 
@@ -89,12 +88,6 @@ public class Loja {
         tamPacote = in.nextInt();
         Higienicos higienico = new Higienicos(nome, price, estoque, validade, fabricante, tamPacote);
         AdicionarProduto(higienico);
-        break;
-      case 4:
-        System.out.println("Data de fabricação");
-        dataFabricacao = in.next();
-        Petiscos petisco = new Petiscos(nome, price, estoque, fabricante, dataFabricacao);
-        AdicionarProduto(petisco);
         break;
       default:
         break;
