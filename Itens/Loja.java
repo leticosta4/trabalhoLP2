@@ -18,6 +18,11 @@ public class Loja {
   public void AdicionarProduto(Produtos produto){
     this.ListaProdutos.add(produto);
   }
+
+  public ArrayList<Produtos> getListaProdutos() {
+    return ListaProdutos;
+  }
+
   public void RemoverProduto(String nome){ //o remever produto do funcionario
     for (int i = 0; i < ListaProdutos.size(); i++) {
       if(ListaProdutos.get(i).getNome().equalsIgnoreCase(nome)){

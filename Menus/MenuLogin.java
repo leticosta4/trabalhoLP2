@@ -1,5 +1,6 @@
 package Menus;
 
+import Itens.Loja;
 import Menus.funcionarioFuncoes.MenuFuncionario;
 import Usuarios.Funcionario;
 
@@ -8,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MenuLogin extends JFrame {
+public class MenuLogin extends JFrame implements ActionListener {
     private JPasswordField senha;
     private JTextField Login;
     protected JPanel PainelLogin;
@@ -16,37 +17,20 @@ public class MenuLogin extends JFrame {
     private JButton voltarButton;
     private JLabel informacao;
     private JLabel bemVindo;
+    private Loja loja;
 
 
     Funcionario teste = new Funcionario("1234", "Kaik");
 
-    public MenuLogin() {
+    public MenuLogin(Loja loja) {
+        this.loja = loja;
         adicionarComponentes();
-        Logar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String loginUsuario = Login.getText();
-                char[] senhaUsuario = senha.getPassword();
+        Logar.addActionListener(this);
+        voltarButton.addActionListener(this);
 
-                if(!loginValido(loginUsuario) || !senhaValida(senhaUsuario))
-                    if(!loginValido(loginUsuario))
-                        JOptionPane.showMessageDialog(Logar,"Login Inválido");
-                    else
-                        JOptionPane.showMessageDialog(Logar,"Senha Inválida");
-                else {
-                    MenuFuncionario menuFuncionario = new MenuFuncionario();
-                    dispose();
-                }
-            }
-        });
-        voltarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                MenuInicial menuInicial = new MenuInicial();
-                dispose();
 
-            }
-        });
+
+
     }
 
     boolean loginValido(String usuario){
@@ -60,17 +44,42 @@ public class MenuLogin extends JFrame {
 
 
     private void adicionarComponentes(){
-        this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setContentPane(this.PainelLogin);
         this.setVisible(true);
-        this.setSize(800,640);
-        alteracaoFontes();
+        this.setSize(640,480);
 
+        this.setLocationRelativeTo(null);
+        alteracaoFontes();
+        this.pack();
     }
 
     private void alteracaoFontes(){
         bemVindo.setFont(new Font("Serif", Font.BOLD,36));
-        informacao.setFont(new Font("Arial", Font.BOLD,26));
+        informacao.setFont(new Font("Arial", Font.BOLD,15));
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == Logar){
+            realizarLogin();
+        } else if (e.getSource() == voltarButton) {
+            dispose();
+        }
+
+    }
+
+    private void realizarLogin(){
+        String loginUsuario = Login.getText();
+        char[] senhaUsuario = senha.getPassword();
+        if(!loginValido(loginUsuario) || !senhaValida(senhaUsuario))
+            if(!loginValido(loginUsuario))
+                JOptionPane.showMessageDialog(Logar,"Login Inválido");
+            else
+                JOptionPane.showMessageDialog(Logar,"Senha Inválida");
+        else {
+            MenuFuncionario menuFuncionario = new MenuFuncionario(loja);
+            dispose();
+        }
     }
 }

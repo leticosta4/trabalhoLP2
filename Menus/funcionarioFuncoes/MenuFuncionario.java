@@ -1,5 +1,7 @@
 package Menus.funcionarioFuncoes;
 
+import Itens.Loja;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,20 +14,13 @@ public class MenuFuncionario extends JFrame {
     private JButton sairButton;
 
 
-    public  MenuFuncionario(){
+    public  MenuFuncionario(Loja loja){
         adicionarComponentes();
         listarProdutosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               MenuListarProdutos listarProdutos = new MenuListarProdutos();
-
-            }
-        });
-        listarProdutosButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
                JOptionPane.showMessageDialog(listarProdutosButton, "Indo para o estoque");
-//                ListarProdutos listarProdutos = new ListarProdutos();
+                MenuListarProdutos listarProdutos = new MenuListarProdutos(loja);
                 dispose();
             }
         });

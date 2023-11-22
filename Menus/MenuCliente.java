@@ -1,5 +1,7 @@
 package Menus;
 
+import Itens.Loja;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,13 +14,13 @@ public class MenuCliente extends JFrame {
     private JButton carrinhoButton;
     private JLabel mensagem;
 
-    public MenuCliente() {
+    public MenuCliente(Loja loja) {
         adicionarComponentes();
         alteracaoFontes();
         sairButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MenuInicial menuInicial = new MenuInicial();
+                MenuInicial menuInicial = new MenuInicial(loja);
                 dispose();
             }
         });
