@@ -3,26 +3,26 @@ package Itens;
 public class Higienicos extends Produtos {
 
 
-    public int tamPacote;
+    public int unidadesPacote;
 
 
-    public Higienicos(String nome, double preco, int estoque, String fabricante, int tamPacote) {
+    public Higienicos(String nome, double preco, int estoque, String fabricante, int unidadesPacote) {
         super(nome, preco, estoque, fabricante);
-        this.tamPacote = tamPacote;
+        this.unidadesPacote = unidadesPacote;
         this.setPreco(calcPreco());
     }
 
     public int getTamPacote() {
-        return tamPacote;
+        return unidadesPacote;
     }
 
-    public void setTamPacote(int tamPacote) {
-        this.tamPacote = tamPacote;
+    public void setUnidadesPacote(int unidadesPacote) {
+        this.unidadesPacote = unidadesPacote;
     }
 
 
     public double calcPreco(){
-        return (this.getPreco() * this.tamPacote) * 0.9;
+        return this.getPreco() * this.unidadesPacote;
     }
 
     @Override

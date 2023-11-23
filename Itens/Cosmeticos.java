@@ -9,6 +9,7 @@ public class Cosmeticos extends Produtos {
         super(nome, preco, estoque, fabricante);
         this.resistenciaAgua = resistenciaAgua;
         this.cor = cor;
+        this.setPreco(calcValor());
     }
 
     public boolean isResistenciaAgua() {
@@ -25,6 +26,10 @@ public class Cosmeticos extends Produtos {
 
     public void setCor(String cor) {
         this.cor = cor;
+    }
+
+    public double calcValor(){
+        return this.resistenciaAgua? this.getPreco() * 1.30: this.getPreco();
     }
 
     @Override
