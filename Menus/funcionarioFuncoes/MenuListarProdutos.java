@@ -5,13 +5,14 @@ import Itens.Loja;
 import Itens.Produtos;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 
 
 public class MenuListarProdutos extends JFrame {
     private JPanel painelListaProdutos;
     private JTextArea listaProdutos;
+    private JList lista;
+    private JScrollBar scrollbar;
     private Loja loja;
 
     public MenuListarProdutos(Loja loja){

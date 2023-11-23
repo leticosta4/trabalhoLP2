@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MenuCliente extends JFrame {
+public class MenuCliente extends JFrame implements ActionListener{
     private JPanel MenuCliente;
     private JButton LojaButton;
     private JButton sairButton;
@@ -16,14 +16,12 @@ public class MenuCliente extends JFrame {
 
     public MenuCliente(Loja loja) {
         adicionarComponentes();
-        alteracaoFontes();
-        sairButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                MenuInicial menuInicial = new MenuInicial(loja);
-                dispose();
-            }
-        });
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == sairButton){
+            dispose();
+        }
     }
 
     private void adicionarComponentes(){
@@ -35,9 +33,14 @@ public class MenuCliente extends JFrame {
         this.setSize(ideal);
         this.setLocationRelativeTo(null);
         alteracaoFontes();
-
+        botoes();
     }
 
+    private void botoes(){
+        LojaButton.addActionListener(this);
+        carrinhoButton.addActionListener(this);
+        sairButton.addActionListener(this);
+    }
     private void alteracaoFontes(){
         mensagem.setFont(new Font("Serif", Font.BOLD,36));
 //        .setFont(new Font("Arial", Font.BOLD,26));

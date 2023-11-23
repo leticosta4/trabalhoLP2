@@ -25,12 +25,6 @@ public class MenuLogin extends JFrame implements ActionListener {
     public MenuLogin(Loja loja) {
         this.loja = loja;
         adicionarComponentes();
-        Logar.addActionListener(this);
-        voltarButton.addActionListener(this);
-
-
-
-
     }
 
     boolean loginValido(String usuario){
@@ -52,7 +46,14 @@ public class MenuLogin extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         alteracaoFontes();
         this.pack();
+        botoes();
     }
+
+    private void botoes(){
+        Logar.addActionListener(this);
+        voltarButton.addActionListener(this);
+    }
+
 
     private void alteracaoFontes(){
         bemVindo.setFont(new Font("Serif", Font.BOLD,36));
