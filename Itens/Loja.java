@@ -23,7 +23,7 @@ public class Loja {
     return ListaProdutos;
   }
 
-  public void RemoverProduto(String nome){ //o remover produto do funcionario
+  public void RemoverProduto(String nome){ //o remever produto do funcionario
     for (int i = 0; i < ListaProdutos.size(); i++) {
       if(ListaProdutos.get(i).getNome().equalsIgnoreCase(nome)){
         ListaProdutos.remove(i);
@@ -33,70 +33,37 @@ public class Loja {
   }
   public void MostrarProdutos(){ //equivalente ao listar
     for (Produtos produtos :ListaProdutos) {
-      System.out.printf("Nome produto: %s | Preço: %.2f | Estoque: %d |\n", produtos.getNome(), produtos.getPreco(), produtos.getEstoque());
+      System.out.println(produtos.toString());
     }
   }
 
-  public void criarProduto() { //o inserir produto do funcionario
-    Scanner in = new Scanner(System.in);
-    String nome, fabricante, validade, tarja, dataFabricacao, cor;
-    int estoque, tipo, tamPacote;
-    char resistente;
-    double price;
-    boolean resistenciaAgua;
-
-    System.out.println("Nome do produto:");
-    nome = in.next();
-    System.out.println("Preço do produto:");
-    price = in.nextDouble();
-    System.out.println("Estoque do produto:");
-    estoque = in.nextInt();
-    System.out.println("Data de validade do produto:(Digite '00' caso não exista)");
-    validade = in.next();
-    System.out.println("Fabricante do produto:");
-    fabricante = in.next();
-
-    System.out.println("""
-                     Qual o tipo do produto?
-                     1 - Remédio
-                     2 - Cosmético
-                     3 - Higiênico
-                 """);
-    tipo = in.nextInt();
-
-    switch(tipo) {
+  public void criarProduto(String nome, double preco, String fabricante, int estoque, String tarja, Boolean resAgua, String cor, Integer tamPacote, int num) { //o inserir produto do funcionario
+    switch(num) {
       case 1:
-        System.out.println("Tarja do remédio? ");
-        tarja = in.next();
-        Remedios remedio = new Remedios(nome, price, estoque, validade, fabricante, tarja);
+        Remedios remedio = new Remedios(nome, preco, estoque, fabricante, tarja);
         AdicionarProduto(remedio);
         break;
       case 2:
-        System.out.println("Cor do produto?");
-        cor = in.next();
-        System.out.println("Tem resistência à água? [s/n]");
-        resistente = in.next().charAt(0);
-        if (resistente == 's') {
-          resistenciaAgua = true;
-        } else{ resistenciaAgua = false; }
-        Cosmeticos cosmetico = new Cosmeticos(nome, price, estoque, validade, fabricante, resistenciaAgua, cor);
+        Cosmeticos cosmetico = new Cosmeticos(nome, preco, estoque, fabricante, resAgua, cor);
         AdicionarProduto(cosmetico);
         break;
       case 3:
-        System.out.println("Tamanho do pacote do produto?");
-        System.out.println("""
-                     Qual o tipo do produto?
-                     2 - P
-                     3 - M
-                     4 - G
-                 """);
-        tamPacote = in.nextInt();
-        Higienicos higienico = new Higienicos(nome, price, estoque, validade, fabricante, tamPacote);
+        Higienicos higienico = new Higienicos(nome, preco, estoque, fabricante, tamPacote);
         AdicionarProduto(higienico);
         break;
-      default:
-        break;
     }
-    in.close();
+  }
+
+
+  public void AdimitirFuncionario(Funcionario funcionario){
+    this.ListaFuncionarios.add(funcionario);
+  }
+  public void demitirFuncionario(String login){
+    for (int i = 0; i < ListaFuncionarios.size(); i++) {
+      if(ListaFuncionarios.get(i).getLogin().equalsIgnoreCase(login)){
+        ListaFuncionarios.remove(i);
+        break;
+      }
+    }
   }
 }
