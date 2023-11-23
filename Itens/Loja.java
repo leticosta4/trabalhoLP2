@@ -23,7 +23,7 @@ public class Loja {
     return ListaProdutos;
   }
 
-  public void RemoverProduto(String nome){ //o remever produto do funcionario
+  public void RemoverProduto(String nome){ //o remover produto do funcionario
     for (int i = 0; i < ListaProdutos.size(); i++) {
       if(ListaProdutos.get(i).getNome().equalsIgnoreCase(nome)){
         ListaProdutos.remove(i);
@@ -98,17 +98,5 @@ public class Loja {
         break;
     }
     in.close();
-  }
-
-  public void AdimitirFuncionario(Funcionario funcionario){
-    this.ListaFuncionarios.add(funcionario);
-  }
-  public void demitirFuncionario(String login){
-    for (int i = 0; i < ListaFuncionarios.size(); i++) {
-      if(ListaFuncionarios.get(i).getLogin().equalsIgnoreCase(login)){
-        ListaFuncionarios.remove(i);
-        break;
-      }
-    }
   }
 }

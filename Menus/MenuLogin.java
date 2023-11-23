@@ -1,6 +1,7 @@
 package Menus;
 
 import Itens.Loja;
+import Itens.Produtos;
 import Menus.funcionarioFuncoes.MenuFuncionario;
 import Usuarios.Funcionario;
 
@@ -8,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class MenuLogin extends JFrame implements ActionListener {
     private JPasswordField senha;
@@ -17,14 +19,13 @@ public class MenuLogin extends JFrame implements ActionListener {
     private JButton voltarButton;
     private JLabel informacao;
     private JLabel bemVindo;
-    private Loja loja;
-
-
+    private final Loja loja;
     Funcionario teste = new Funcionario("1234", "Kaik");
 
     public MenuLogin(Loja loja) {
         this.loja = loja;
         adicionarComponentes();
+//        teste(loja);
     }
 
     boolean loginValido(String usuario){
@@ -83,4 +84,8 @@ public class MenuLogin extends JFrame implements ActionListener {
             dispose();
         }
     }
+//    private void teste(Loja loja){
+//        loja.MostrarProdutos();
+//    }
+
 }

@@ -17,12 +17,11 @@ public class MenuInicial extends JFrame implements ActionListener{
     private JButton sairButton;
     private JLabel titulo;
     private JLabel conglomeradoLet;
-    Loja let = new Loja();
-    Produtos remedio01 = new Remedios("Tylenol", 50.0, 2, "10/05/2021", "Leticia", "branca");
-
-
-    public MenuInicial(){
+    private final Loja loja;
+    public MenuInicial(Loja loja){
+        this.loja = loja;
         iniciarComponentes();
+//        teste(loja);
     }
 
     //autoExplicativo
@@ -54,19 +53,18 @@ public class MenuInicial extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == clienteButton){
             JOptionPane.showMessageDialog(clienteButton, "Indo para menu do Cliente");
-            MenuCliente menuCliente = new MenuCliente(let);
+            MenuCliente menuCliente = new MenuCliente(loja);
             this.setVisible(false);
         } else if (e.getSource() == funcionarioButton) {
             JOptionPane.showMessageDialog(funcionarioButton, "Indo para login do funcionário");
-            MenuLogin menuLogin = new MenuLogin(let);
+            MenuLogin menuLogin = new MenuLogin(loja);
         } else if (e.getSource() == sairButton) {
             dispose();
         }
-
-
-
     }
-
+//    private void teste(Loja loja){
+//        loja.MostrarProdutos();
+//    }
 
 }
 

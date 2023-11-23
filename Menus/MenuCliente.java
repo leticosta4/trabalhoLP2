@@ -13,7 +13,6 @@ public class MenuCliente extends JFrame implements ActionListener{
     private JButton sairButton;
     private JButton carrinhoButton;
     private JLabel mensagem;
-
     public MenuCliente(Loja loja) {
         adicionarComponentes();
     }

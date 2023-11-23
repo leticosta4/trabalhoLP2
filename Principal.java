@@ -17,12 +17,7 @@ public class Principal {
         Produtos higienico01 = new Higienicos("Papel", 50, 5, "20/30/2023", "Bauduco", 2);
         let.AdicionarProduto(remedio01);
         let.AdicionarProduto(remedio02);
-        MenuInicial menuInicial = new MenuInicial();
+        MenuInicial menuInicial = new MenuInicial(let);
         Funcionario f01 = new Funcionario("9145", "kaik");
-
-
-        let.MostrarProdutos();
-
     }
-
 }
