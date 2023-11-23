@@ -7,16 +7,7 @@ public abstract class Produtos {
     private String nome;
     private double preco;
     private int estoque;
-    private String dataValidade;
     private String fabricante;
-
-    public Produtos(String nome, double preco, int estoque, String dataValidade, String fabricante) {
-        this.nome = nome;
-        this.preco = preco;
-        this.estoque = estoque;
-        this.dataValidade = dataValidade;
-        this.fabricante = fabricante;
-    }
 
     public Produtos(String nome, double preco, int estoque, String fabricante) {
         this.nome = nome;
@@ -49,14 +40,6 @@ public abstract class Produtos {
         this.estoque = estoque;
     }
 
-    public String getDataValidade() {
-        return dataValidade;
-    }
-
-    public void setDataValidade(String dataValidade) {
-        this.dataValidade = dataValidade;
-    }
-
     public String getFabricante() {
         return fabricante;
     }
@@ -65,4 +48,8 @@ public abstract class Produtos {
         this.fabricante = fabricante;
     }
 
+    @Override
+    public String toString() {
+        return String.format("| %s | %.2f | %d | %s", this.getNome(),this.getPreco(), this.getEstoque(), this.getFabricante());
+    }
 }

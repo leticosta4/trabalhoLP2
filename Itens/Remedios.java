@@ -3,8 +3,8 @@ package Itens;
 public class Remedios extends Produtos implements  Desconto {
     private String tarja;
 
-    public Remedios(String nome, double preco, int estoque, String dataValidade, String fabricante, String tarja) {
-        super(nome, preco, estoque, dataValidade, fabricante);
+    public Remedios(String nome, double preco, int estoque, String fabricante, String tarja) {
+        super(nome, preco, estoque, fabricante);
         this.tarja = tarja;
         this.setPreco(setDesconto());
     }
@@ -23,5 +23,8 @@ public class Remedios extends Produtos implements  Desconto {
         this.tarja = tarja;
     }
 
-
+    @Override
+    public String toString() {
+        return super.toString() + String.format(" |%s" + " | " +null+ " | " + null + " | ", this.getTarja());
+    }
 }

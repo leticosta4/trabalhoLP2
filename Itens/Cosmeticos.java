@@ -5,8 +5,8 @@ public class Cosmeticos extends Produtos implements Desconto {
     private boolean resistenciaAgua;
     private String cor;
 
-    public Cosmeticos(String nome, double preco, int estoque, String dataValidade, String fabricante, boolean resistenciaAgua, String cor) {
-        super(nome, preco, estoque, dataValidade, fabricante);
+    public Cosmeticos(String nome, double preco, int estoque,String fabricante, boolean resistenciaAgua, String cor) {
+        super(nome, preco, estoque, fabricante);
         this.resistenciaAgua = resistenciaAgua;
         this.cor = cor;
         if(resistenciaAgua) this.setPreco((setDesconto() * this.getPreco()) * 1.15);
@@ -34,4 +34,8 @@ public class Cosmeticos extends Produtos implements Desconto {
         return this.getPreco() / 1.15;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + String.format("| %s | %b", this.getCor(), this.isResistenciaAgua());
+    }
 }
