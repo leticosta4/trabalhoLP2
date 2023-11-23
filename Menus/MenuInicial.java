@@ -1,8 +1,6 @@
 package Menus;
 
-import Itens.Loja;
-import Itens.Produtos;
-import Itens.Remedios;
+import Itens.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,10 +17,15 @@ public class MenuInicial extends JFrame implements ActionListener{
     private JLabel conglomeradoLet;
     Loja let = new Loja();
     Produtos remedio01 = new Remedios("Tylenol", 50.0, 2, "Leticia", "branca");
+    Produtos comestico01 = new Cosmeticos("Tylenol2", 50.0, 2, "Leticia", true, "azul");
+    Produtos higienico01 = new Higienicos("Papel", 15, 2, "bauduco", 3);
 
 
     public MenuInicial(){
         this.let.AdicionarProduto(remedio01);
+        this.let.AdicionarProduto(comestico01);
+        this.let.AdicionarProduto(higienico01);
+
         iniciarComponentes();
     }
 

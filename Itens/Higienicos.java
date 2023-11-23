@@ -1,6 +1,6 @@
 package Itens;
 
-public class Higienicos extends Produtos implements Desconto {
+public class Higienicos extends Produtos {
 
 
     public int tamPacote;
@@ -22,15 +22,11 @@ public class Higienicos extends Produtos implements Desconto {
 
 
     public double calcPreco(){
-        return this.getPreco() * this.tamPacote;
-    }
-    @Override
-    public double setDesconto() {
-        return this.getPreco() / 1.15;
+        return (this.getPreco() * this.tamPacote) * 0.9;
     }
 
     @Override
     public String toString() {
-        return super.toString() + String.format("| %d", this.getTamPacote());
+        return super.toString() + String.format(null + " | " + null + " | " + null + " | %d |", this.getTamPacote());
     }
 }
