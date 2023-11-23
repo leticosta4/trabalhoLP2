@@ -26,7 +26,9 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <visible value="false"/>
+        </properties>
       </component>
       <component id="a705f" class="javax.swing.JTextField" binding="estoqueProdutoText">
         <constraints>
@@ -44,6 +46,7 @@
         </constraints>
         <properties>
           <text value=""/>
+          <visible value="false"/>
         </properties>
       </component>
       <component id="95648" class="javax.swing.JTextField" binding="precoProdutoText">
@@ -128,6 +131,7 @@
         <properties>
           <font name="Arial Black" style="1"/>
           <text value="Tamanho"/>
+          <visible value="false"/>
         </properties>
       </component>
       <component id="2300c" class="javax.swing.JLabel" binding="cor">
@@ -137,6 +141,7 @@
         <properties>
           <font name="Arial Black" style="1"/>
           <text value="Cor"/>
+          <visible value="false"/>
         </properties>
       </component>
       <component id="1e4d4" class="javax.swing.JComboBox" binding="resistenciaAguaBox">
@@ -148,6 +153,7 @@
             <item value="Sim"/>
             <item value="Não"/>
           </model>
+          <visible value="false"/>
         </properties>
       </component>
       <component id="53fff" class="javax.swing.JLabel" binding="resistenciaAgua">
@@ -158,6 +164,7 @@
           <font name="Arial Black" style="1"/>
           <text value="Res. Agua"/>
           <toolTipText value="Resistência a água"/>
+          <visible value="false"/>
         </properties>
       </component>
       <vspacer id="2275c">
