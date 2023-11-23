@@ -18,10 +18,11 @@ public class MenuInicial extends JFrame implements ActionListener{
     private JLabel titulo;
     private JLabel conglomeradoLet;
     Loja let = new Loja();
-   // Produtos remedio01 = new Remedios("Tylenol", 50.0, 2, "10/05/2021", "Leticia", "branca");
+    Produtos remedio01 = new Remedios("Tylenol", 50.0, 2, "Leticia", "branca");
 
 
     public MenuInicial(){
+        this.let.AdicionarProduto(remedio01);
         iniciarComponentes();
     }
 
@@ -62,12 +63,7 @@ public class MenuInicial extends JFrame implements ActionListener{
         } else if (e.getSource() == sairButton) {
             dispose();
         }
-
-
-
     }
-
-
 }
 
 

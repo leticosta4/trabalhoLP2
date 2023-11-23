@@ -53,17 +53,4 @@ public class Loja {
         break;
     }
   }
-
-
-  public void AdimitirFuncionario(Funcionario funcionario){
-    this.ListaFuncionarios.add(funcionario);
-  }
-  public void demitirFuncionario(String login){
-    for (int i = 0; i < ListaFuncionarios.size(); i++) {
-      if(ListaFuncionarios.get(i).getLogin().equalsIgnoreCase(login)){
-        ListaFuncionarios.remove(i);
-        break;
-      }
-    }
-  }
 }

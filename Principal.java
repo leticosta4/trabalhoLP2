@@ -25,7 +25,6 @@ public class Principal {
         Funcionario f01 = new Funcionario("9145", "kaik");
 
 
-        let.MostrarProdutos();
 
     }
         public static void  setarLookAndFeel(){

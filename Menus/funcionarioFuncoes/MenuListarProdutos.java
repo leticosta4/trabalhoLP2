@@ -37,7 +37,7 @@ public class MenuListarProdutos extends JFrame{
         DefaultListModel dlm = new DefaultListModel<>();
         ArrayList<Produtos> prod = loja.getListaProdutos();
         for(Produtos produtos:prod){
-            dlm.addElement(produtos);
+            dlm.addElement(produtos.getNome());
         }
         jlist.setModel(dlm);
     }
