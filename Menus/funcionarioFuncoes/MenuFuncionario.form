@@ -17,6 +17,7 @@
           </grid>
         </constraints>
         <properties>
+          <font name="Arial Black" style="1"/>
           <text value="O que deseja fazer?"/>
         </properties>
       </component>

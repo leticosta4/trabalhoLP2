@@ -40,12 +40,12 @@ public class MenuLogin extends JFrame implements ActionListener {
 
     private void adicionarComponentes(){
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setContentPane(this.PainelLogin);
         this.setVisible(true);
         this.setSize(640,480);
         botoes(); //nao altera o this.pack
         this.setLocationRelativeTo(null);
         alteracaoFontes();
+        this.setContentPane(this.PainelLogin);
         this.pack(); //junta tudo
     }
 
