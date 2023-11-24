@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 public class MenuAdicionarProdutos extends JFrame implements ActionListener {
     private JComboBox tiposProdutosBox;
+
     private JPanel painelAdicionarProdutos;
     private JTextField fabricanteProdutoText;
     private JTextField corProdutoText;
