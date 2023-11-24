@@ -30,7 +30,7 @@ public class Cosmeticos extends Produtos {
 
     public double calcValor(){
         return this.resistenciaAgua? this.getPreco() * 1.30: this.getPreco();
-    }
+    } //if ternario (mais caro se for resistente a agua)
 
     @Override
     public String toString() {

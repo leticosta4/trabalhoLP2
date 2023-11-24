@@ -16,16 +16,7 @@ public class Principal {
 
         setarLookAndFeel();
         Loja let = new Loja();
-       // Produtos remedio01 = new Remedios("Tylenol", 50.0, 2, "10/05/2021", "Leticia", "branca");
-       // Produtos remedio02 = new Remedios("Dipirona", 100, 3, "10/20/2023", "KainanEntrepise", "preta");
-       // Produtos higienico01 = new Higienicos("Papel", 50, 5, "20/30/2023", "Bauduco", 2);
-       // let.AdicionarProduto(remedio01);
-       // let.AdicionarProduto(remedio02);
         MenuInicial menuInicial = new MenuInicial();
-        Funcionario f01 = new Funcionario("9145", "kaik");
-
-
-
     }
         public static void  setarLookAndFeel(){
             try {

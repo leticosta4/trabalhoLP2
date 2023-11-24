@@ -18,7 +18,7 @@ public class Higienicos extends Produtos {
 
     public void setUnidadesPacote(int unidadesPacote) {
         this.unidadesPacote = unidadesPacote;
-    }
+    } //trocando tamanho por unidade
 
 
     public double calcPreco(){

@@ -203,7 +203,7 @@
           <inheritsPopupMenu value="false"/>
           <model>
             <item value="Remédios"/>
-            <item value="Higiénicos"/>
+            <item value="Higiênicos"/>
             <item value="Cosméticos"/>
           </model>
           <opaque value="true"/>

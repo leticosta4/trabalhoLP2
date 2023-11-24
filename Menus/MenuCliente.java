@@ -30,7 +30,7 @@ public class MenuCliente extends JFrame implements ActionListener{
         this.setVisible(true);
         this.setMinimumSize(ideal);
         this.setSize(ideal);
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null); //p n passar do limite
         alteracaoFontes();
         botoes();
     }
@@ -40,7 +40,7 @@ public class MenuCliente extends JFrame implements ActionListener{
         carrinhoButton.addActionListener(this);
         sairButton.addActionListener(this);
     }
-    private void alteracaoFontes(){
+    private void alteracaoFontes(){ //da p mexer pela interface
         mensagem.setFont(new Font("Serif", Font.BOLD,36));
 //        .setFont(new Font("Arial", Font.BOLD,26));
     }

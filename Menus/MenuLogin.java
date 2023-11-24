@@ -25,7 +25,7 @@ public class MenuLogin extends JFrame implements ActionListener {
     public MenuLogin(Loja loja) {
         this.loja = loja;
         adicionarComponentes();
-//        teste(loja);
+
     }
 
     boolean loginValido(String usuario){
@@ -43,11 +43,10 @@ public class MenuLogin extends JFrame implements ActionListener {
         this.setContentPane(this.PainelLogin);
         this.setVisible(true);
         this.setSize(640,480);
-
+        botoes(); //nao altera o this.pack
         this.setLocationRelativeTo(null);
         alteracaoFontes();
-        this.pack();
-        botoes();
+        this.pack(); //junta tudo
     }
 
     private void botoes(){
@@ -56,7 +55,7 @@ public class MenuLogin extends JFrame implements ActionListener {
     }
 
 
-    private void alteracaoFontes(){
+    private void alteracaoFontes(){ //!!
         bemVindo.setFont(new Font("Serif", Font.BOLD,36));
         informacao.setFont(new Font("Arial", Font.BOLD,15));
     }
@@ -76,16 +75,12 @@ public class MenuLogin extends JFrame implements ActionListener {
         char[] senhaUsuario = senha.getPassword();
         if(!loginValido(loginUsuario) || !senhaValida(senhaUsuario))
             if(!loginValido(loginUsuario))
-                JOptionPane.showMessageDialog(Logar,"Login Inválido");
+                JOptionPane.showMessageDialog(Logar,"Login Inválido.");
             else
-                JOptionPane.showMessageDialog(Logar,"Senha Inválida");
+                JOptionPane.showMessageDialog(Logar,"Senha Inválida.");
         else {
             MenuFuncionario menuFuncionario = new MenuFuncionario(loja);
             dispose();
         }
     }
-//    private void teste(Loja loja){
-//        loja.MostrarProdutos();
-//    }
-
 }

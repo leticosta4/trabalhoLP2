@@ -18,8 +18,11 @@ public class MenuFuncionario extends JFrame implements ActionListener{
     public  MenuFuncionario(Loja loja){
         this.loja = loja;
         adicionarComponentes();
+<<<<<<< Updated upstream
 
 //        teste(loja);
+=======
+>>>>>>> Stashed changes
     }
 
     private void adicionarComponentes(){
@@ -42,16 +45,17 @@ public class MenuFuncionario extends JFrame implements ActionListener{
             JOptionPane.showMessageDialog(listarProdutosButton, "Indo para o estoque");
             MenuListarProdutos listarProdutos = new MenuListarProdutos(this.loja);
         }else if(e.getSource() == atualizarProdutosButton){
-            System.out.println("em produção");
+            System.out.println("em produção"); //!!
         } else if(e.getSource() == adicionarOuRemoverButton) {
+<<<<<<< Updated upstream
             MenuAdicionarProdutos menuAdicionarProdutos = new MenuAdicionarProdutos(this.loja);
+=======
+            System.out.println("em produção"); //!!
+>>>>>>> Stashed changes
         } else if(e.getSource() == sairButton){
             dispose();
         }
     }
-//    private void teste(Loja loja){
-//        loja.MostrarProdutos();
-//    }
 }
 
 

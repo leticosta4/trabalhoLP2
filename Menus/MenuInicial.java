@@ -17,9 +17,8 @@ public class MenuInicial extends JFrame implements ActionListener{
     private JLabel conglomeradoLet;
     Loja let = new Loja();
     Produtos remedio01 = new Remedios("Tylenol", 50.0, 2, "Leticia", "branca");
-    Produtos comestico01 = new Cosmeticos("Tylenol2", 50.0, 2, "Leticia", true, "azul");
+    Produtos comestico01 = new Cosmeticos("Esmalte", 50.0, 2, "Leticia", true, "azul");
     Produtos higienico01 = new Higienicos("Papel", 15, 2, "bauduco", 3);
-
 
     public MenuInicial(){
         this.let.AdicionarProduto(remedio01);
@@ -33,7 +32,7 @@ public class MenuInicial extends JFrame implements ActionListener{
     private void iniciarComponentes(){
         //configs da janela
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.titulo.setFont((new Font("Serif", Font.ITALIC, 36)));
+        this.titulo.setFont((new Font("Serif", Font.ITALIC, 36))); //da p tirar
         this.setVisible(true);
         this.setContentPane(this.PainelInicial);
         this.setSize(640,480);
@@ -56,8 +55,9 @@ public class MenuInicial extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //passando a loja como parametro p os 2 tipos
         if(e.getSource() == clienteButton){
-            JOptionPane.showMessageDialog(clienteButton, "Indo para menu do Cliente");
+            JOptionPane.showMessageDialog(clienteButton, "Indo para menu do cliente");
             MenuCliente menuCliente = new MenuCliente(let);
             this.setVisible(false);
         } else if (e.getSource() == funcionarioButton) {
