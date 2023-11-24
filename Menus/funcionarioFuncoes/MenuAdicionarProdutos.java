@@ -1,7 +1,6 @@
 package Menus.funcionarioFuncoes;
 
 import Itens.Loja;
-import Itens.Produtos;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -28,10 +27,12 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener {
     private JLabel cor;
     private JLabel informacao;
     private JButton confirmar;
+    private JButton sairButton;
 
-    Loja abcd = new Loja();
+    Loja let = new Loja();
 
-    public MenuAdicionarProdutos() {
+    public MenuAdicionarProdutos(Loja loja) {
+        this.let = loja;
         adicionarComponentes();
     }
 
@@ -42,6 +43,7 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener {
         this.setContentPane(this.painelAdicionarProdutos);
         tiposProdutosBox.addActionListener(this);
         confirmar.addActionListener(this);
+        sairButton.addActionListener(this);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.pack();
     }
@@ -52,56 +54,59 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener {
             String selectedOption = (String) tiposProdutosBox.getSelectedItem();
             // Verifica a opção selecionada e ajusta a visibilidade dos rótulos
             if (selectedOption != null) {
-                if (selectedOption.equals("Remédios"))  {
-                    tarja.setVisible(true);
-                    tarjaBox.setVisible(true);
-                    resistenciaAgua.setVisible(false);
-                    resistenciaAguaBox.setVisible(false);
-                    tamanho.setVisible(false);
-                    tamanhoProdutoText.setVisible(false);
-                    corProdutoText.setVisible(false);
-                    cor.setVisible(false);
-                    if (e.getSource() == confirmar) {
-                        pegarTexto(1);
-                        abcd.MostrarProdutos();
+                switch (selectedOption) {
+                    case "Remédios" -> {
+                        tarja.setVisible(true);
+                        tarjaBox.setVisible(true);
+                        resistenciaAgua.setVisible(false);
+                        resistenciaAguaBox.setVisible(false);
+                        tamanho.setVisible(false);
+                        tamanhoProdutoText.setVisible(false);
+                        corProdutoText.setVisible(false);
+                        cor.setVisible(false);
+                        if (e.getSource() == confirmar) {
+                            pegarTexto(1);
+                            JOptionPane.showMessageDialog(confirmar, "Produto Adicionado Com Sucesso");
+                        }
                     }
-                } else if (selectedOption.equals("Cosméticos")) {
-                    tarja.setVisible(false);
-                    tarjaBox.setVisible(false);
-                    resistenciaAgua.setVisible(true);
-                    resistenciaAguaBox.setVisible(true);
-                    tamanho.setVisible(false);
-                    tamanhoProdutoText.setVisible(false);
-                    corProdutoText.setVisible(true);
-                    cor.setVisible(true);
-                    if (e.getSource() == confirmar) {
-                        pegarTexto(2);
-                        abcd.MostrarProdutos();
+                    case "Cosméticos" -> {
+                        tarja.setVisible(false);
+                        tarjaBox.setVisible(false);
+                        resistenciaAgua.setVisible(true);
+                        resistenciaAguaBox.setVisible(true);
+                        tamanho.setVisible(false);
+                        tamanhoProdutoText.setVisible(false);
+                        corProdutoText.setVisible(true);
+                        cor.setVisible(true);
+                        if (e.getSource() == confirmar) {
+                            pegarTexto(2);
+                            JOptionPane.showMessageDialog(confirmar, "Produto Adicionado Com Sucesso");
 
+
+                        }
                     }
-                } else if (selectedOption.equals("Higiénicos")) {
-                    tarja.setVisible(false);
-                    tarjaBox.setVisible(false);
-                    resistenciaAgua.setVisible(false);
-                    resistenciaAguaBox.setVisible(false);
-                    tamanho.setVisible(true);
-                    tamanhoProdutoText.setVisible(true);
-                    corProdutoText.setVisible(false);
-                    cor.setVisible(false);
-                    if (e.getSource() == confirmar) {
-                        pegarTexto(3);
-                        abcd.MostrarProdutos();
+                    case "Higiénicos" -> {
+                        tarja.setVisible(false);
+                        tarjaBox.setVisible(false);
+                        resistenciaAgua.setVisible(false);
+                        resistenciaAguaBox.setVisible(false);
+                        tamanho.setVisible(true);
+                        tamanhoProdutoText.setVisible(true);
+                        corProdutoText.setVisible(false);
+                        cor.setVisible(false);
+                        if (e.getSource() == confirmar) {
+                            pegarTexto(3);
+                            JOptionPane.showMessageDialog(confirmar, "Produto Adicionado Com Sucesso");
 
+                        }
                     }
                 }
+                limparTexto();
                 this.pack();
             }
-        }/* else if (e.getSource() == confirmar) {
-            System.out.println("123");
-            pegarTexto();
-            abcd.MostrarProdutos();
-            System.out.println(abcd.getListaProdutos());
-        } */
+        } else if (e.getSource() == sairButton) {
+            dispose();
+        }
     }
 
     private void pegarTexto(int num){
@@ -113,41 +118,29 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener {
         switch (num) {
             case 1:
                 String tarja = tarjaBox.getSelectedItem().toString();
-                abcd.criarProduto(nomeProd,preco,fabricante,estoque,tarja, null,null,null,num);
+                this.let.criarProduto(nomeProd,preco,fabricante,estoque,tarja, null,null,null,num);
                 break;
             case 2:
                 String resistenciaAgua = resistenciaAguaBox.getSelectedItem().toString();
                 boolean resistenciaAguaBoolean = resistenciaAgua.equals("Sim");
                 String cor = corProdutoText.getText();
-                abcd.criarProduto(nomeProd,preco,fabricante,estoque,null, resistenciaAguaBoolean,cor, null,num);
+                this.let.criarProduto(nomeProd,preco,fabricante,estoque,null, resistenciaAguaBoolean,cor, null,num);
                 break;
             case 3:
                 int tamanho = Integer.parseInt(tamanhoProdutoText.getText());
-                abcd.criarProduto(nomeProd,preco,fabricante,estoque,null,null,null,tamanho,num);
+                this.let.criarProduto(nomeProd,preco,fabricante,estoque,null,null,null,tamanho,num);
                 break;
         }
     }
 
 
-
-
-    public static void main(String[] args) {
-        try {
-            // Verifica se o Nimbus está disponível
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    // Define o Nimbus como look and feel
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                 UnsupportedLookAndFeelException e) {
-            // Trata exceções relacionadas ao look and feel
-            e.printStackTrace();
-
+        private void limparTexto(){
+            this.nomeProdutoText.setText("");
+            this.precoProdutoText.setText("");
+            this.estoqueProdutoText.setText("");
+            this.fabricanteProdutoText.setText("");
+            this.corProdutoText.setText("");
+            this.tamanhoProdutoText.setText("");
 
         }
-        MenuAdicionarProdutos menuAdicionarProdutos = new MenuAdicionarProdutos();
-    }
 }

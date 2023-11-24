@@ -19,7 +19,7 @@ public class MenuLogin extends JFrame implements ActionListener {
     private JButton voltarButton;
     private JLabel informacao;
     private JLabel bemVindo;
-    private final Loja loja;
+    private Loja loja;
     Funcionario teste = new Funcionario("1234", "Kaik");
 
     public MenuLogin(Loja loja) {
