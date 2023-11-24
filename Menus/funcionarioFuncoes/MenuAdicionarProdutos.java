@@ -54,7 +54,6 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener {
             String selectedOption = (String) tiposProdutosBox.getSelectedItem();
             // Verifica a opção selecionada e ajusta a visibilidade dos rótulos
             if (selectedOption != null) {
-<<<<<<< Updated upstream
                 switch (selectedOption) {
                     case "Remédios" -> {
                         tarja.setVisible(true);
@@ -82,38 +81,10 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener {
                         if (e.getSource() == confirmar) {
                             pegarTexto(2);
                             JOptionPane.showMessageDialog(confirmar, "Produto Adicionado Com Sucesso");
-=======
-                if(selectedOption.equals("Remédios")){
-                    tarja.setVisible(true);
-                    tarjaBox.setVisible(true);
-                    resistenciaAgua.setVisible(false);
-                    resistenciaAguaBox.setVisible(false);
-                    tamanho.setVisible(false);
-                    tamanhoProdutoText.setVisible(false);
-                    corProdutoText.setVisible(false);
-                    cor.setVisible(false);
-                    if (e.getSource() == confirmar) {
-                        pegarTexto(1);
-                        abcd.MostrarProdutos();
-                    }
-                } else if (selectedOption.equals("Cosméticos")){
-                    tarja.setVisible(false);
-                    tarjaBox.setVisible(false);
-                    resistenciaAgua.setVisible(true);
-                    resistenciaAguaBox.setVisible(true);
-                    tamanho.setVisible(false);
-                    tamanhoProdutoText.setVisible(false);
-                    corProdutoText.setVisible(true);
-                    cor.setVisible(true);
-                    if (e.getSource() == confirmar) {
-                        pegarTexto(2);
-                        abcd.MostrarProdutos();
->>>>>>> Stashed changes
 
 
                         }
                     }
-<<<<<<< Updated upstream
                     case "Higiénicos" -> {
                         tarja.setVisible(false);
                         tarjaBox.setVisible(false);
@@ -126,20 +97,6 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener {
                         if (e.getSource() == confirmar) {
                             pegarTexto(3);
                             JOptionPane.showMessageDialog(confirmar, "Produto Adicionado Com Sucesso");
-=======
-                } else if (selectedOption.equals("Higiênicos")){
-                    tarja.setVisible(false);
-                    tarjaBox.setVisible(false);
-                    resistenciaAgua.setVisible(false);
-                    resistenciaAguaBox.setVisible(false);
-                    tamanho.setVisible(true);
-                    tamanhoProdutoText.setVisible(true);
-                    corProdutoText.setVisible(false);
-                    cor.setVisible(false);
-                    if (e.getSource() == confirmar) {
-                        pegarTexto(3);
-                        abcd.MostrarProdutos();
->>>>>>> Stashed changes
 
                         }
                     }
@@ -147,11 +104,8 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener {
                 limparTexto();
                 this.pack();
             }
-<<<<<<< Updated upstream
         } else if (e.getSource() == sairButton) {
             dispose();
-=======
->>>>>>> Stashed changes
         }
     }
 
@@ -179,7 +133,6 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener {
         }
     }
 
-<<<<<<< Updated upstream
 
         private void limparTexto(){
             this.nomeProdutoText.setText("");
@@ -189,21 +142,6 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener {
             this.corProdutoText.setText("");
             this.tamanhoProdutoText.setText("");
 
-=======
-    public static void main(String[] args) {
-        try {
-            // Verifica se o Nimbus está disponível
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    // Define o Nimbus como look and feel
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                 UnsupportedLookAndFeelException e) {
-            // Trata exceções relacionadas ao look and feel
-            e.printStackTrace();
->>>>>>> Stashed changes
+
         }
 }
