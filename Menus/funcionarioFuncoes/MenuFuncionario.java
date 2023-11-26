@@ -13,11 +13,13 @@ public class MenuFuncionario extends JFrame implements ActionListener{
     private JButton adicionarOuRemoverButton;
     private JButton sairButton;
 
-    private final Loja loja;
+    private Loja loja;
 
     public  MenuFuncionario(Loja loja){
         this.loja = loja;
         adicionarComponentes();
+
+
     }
 
     private void adicionarComponentes(){
@@ -43,7 +45,7 @@ public class MenuFuncionario extends JFrame implements ActionListener{
             System.out.println("em produção"); //!!
         } else if(e.getSource() == adicionarOuRemoverButton) {
             MenuAdicionarProdutos menuAdicionarProdutos = new MenuAdicionarProdutos(this.loja);
-            System.out.println("em produção"); //!!
+
         } else if(e.getSource() == sairButton){
             dispose();
         }

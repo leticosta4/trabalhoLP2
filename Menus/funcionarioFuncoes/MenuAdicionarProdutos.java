@@ -5,8 +5,10 @@ import Itens.Loja;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class MenuAdicionarProdutos extends JFrame implements ActionListener {
+public class MenuAdicionarProdutos extends JFrame implements ActionListener , KeyListener {
     private JComboBox tiposProdutosBox;
 
     private JPanel painelAdicionarProdutos;
@@ -42,13 +44,21 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener {
         this.setSize(640, 480);
         this.setLocationRelativeTo(null);
         this.setContentPane(this.painelAdicionarProdutos);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setarActionListerner();
+        setarKeyListener();
+        this.pack();
+    }
+    private void setarActionListerner(){
         tiposProdutosBox.addActionListener(this);
         confirmar.addActionListener(this);
         sairButton.addActionListener(this);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.pack();
     }
-
+    private void setarKeyListener(){
+        estoqueProdutoText.addKeyListener(this);
+        corProdutoText.addKeyListener(this);
+        precoProdutoText.addKeyListener(this);
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == tiposProdutosBox || e.getSource() == confirmar) {
@@ -145,4 +155,28 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener {
 
 
         }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        char charColetado = e.getKeyChar();
+        if(e.getSource() == estoqueProdutoText) {
+            if (!Character.isDigit(charColetado) && charColetado != KeyEvent.VK_BACK_SPACE && charColetado != KeyEvent.VK_DELETE) e.consume(); //Só Numero
+        }
+        else if (e.getSource() == corProdutoText) {
+            if(Character.isDigit(charColetado)) e.consume(); //Só letra
+            }
+        else if (e.getSource() == precoProdutoText) {
+            if (!Character.isDigit(charColetado) && charColetado != KeyEvent.VK_BACK_SPACE && charColetado != KeyEvent.VK_DELETE && charColetado != KeyEvent.VK_PERIOD) e.consume(); //Só numeros e o ponto '.' por causa do double
+        }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 }
