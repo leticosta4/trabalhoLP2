@@ -1,40 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Menus.funcionarioFuncoes.MenuListarProdutos">
-  <grid id="27dc6" binding="PainelListar" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="Painel" custom-create="true" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="11" y="17" width="800" height="300"/>
+      <xy x="43" y="81" width="800" height="400"/>
     </constraints>
     <properties>
-      <minimumSize width="800" height="300"/>
+      <minimumSize width="800" height="400"/>
       <name value=""/>
-      <preferredSize width="800" height="300"/>
+      <preferredSize width="800" height="400"/>
       <requestFocusEnabled value="false"/>
     </properties>
     <border type="none" title="Estoque" title-justification="2">
       <font/>
     </border>
     <children>
-      <component id="68133" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <scrollpane id="9b5a4" binding="painelLista">
         <constraints>
-          <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="84411" class="javax.swing.JLabel" binding="pesquisaText">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Pesquisa"/>
-        </properties>
-      </component>
-      <scrollpane id="9b72f" binding="Scrollpane1">
-        <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="364" height="138"/>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="192" height="225"/>
           </grid>
         </constraints>
         <properties>
@@ -43,30 +27,76 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="f8b68" class="javax.swing.JList" binding="listProds">
+          <component id="6ebec" class="javax.swing.JList" binding="list1" default-binding="true">
             <constraints/>
             <properties>
-              <model/>
+              <maximumSize width="-1" height="-1"/>
+              <minimumSize width="-1" height="-1"/>
             </properties>
           </component>
         </children>
       </scrollpane>
-      <scrollpane id="24406" binding="Scrollpane2">
+      <vspacer id="92acf">
         <constraints>
-          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="164" height="17"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <preferred-size width="11" height="225"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <component id="a4676" class="javax.swing.JLabel" binding="caixaPesquisa">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Pesquisa"/>
+        </properties>
+      </component>
+      <component id="636c6" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="192" height="30"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <vspacer id="a8821">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <minimum-size width="11" height="-1"/>
+            <preferred-size width="11" height="-1"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <component id="eb504" class="javax.swing.JLabel" binding="infoLabel">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="e3ec1" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value="Todos"/>
+            <item value="Remedios"/>
+            <item value="Cosméticos"/>
+            <item value="Higiênicos"/>
+          </model>
+        </properties>
+      </component>
+      <scrollpane id="b5157" binding="painelInfo">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="192" height="225"/>
           </grid>
         </constraints>
         <properties/>
         <border type="none"/>
-        <children>
-          <component id="3ed1d" class="javax.swing.JLabel" binding="infoPanel">
-            <constraints/>
-            <properties>
-              <text value=""/>
-            </properties>
-          </component>
-        </children>
+        <children/>
       </scrollpane>
     </children>
   </grid>

@@ -5,20 +5,20 @@ import Itens.Loja;
 import Itens.Produtos;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
 public class MenuListarProdutos extends JFrame{
 
-    private JPanel PainelListar;
+    private JPanel Painel;
     private JTextField textField1;
+    private JScrollPane painelInfo;
+    private JScrollPane painelLista;
+    private JList list1;
+    private JComboBox comboBox1;
+    private JLabel infoLabel;
+    private JLabel caixaPesquisa;
     private JList listProds;
-    private JScrollPane Scrollpane1;
-    private JScrollPane Scrollpane2;
-    private JLabel pesquisaText;
-    private JLabel infoPanel;
 
     public MenuListarProdutos(Loja loja){
         adicionarComponentes();
@@ -40,6 +40,10 @@ public class MenuListarProdutos extends JFrame{
             dlm.addElement(produtos);
         }
         jlist.setModel(dlm);
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }
 
