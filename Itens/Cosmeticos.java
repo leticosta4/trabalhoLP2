@@ -9,6 +9,7 @@ public class Cosmeticos extends Produtos {
         super(nome, preco, estoque, fabricante);
         this.resistenciaAgua = resistenciaAgua;
         this.cor = cor;
+
         this.setPreco(calcValor());
     }
 

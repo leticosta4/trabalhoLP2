@@ -12,18 +12,17 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
-public class MenuListarProdutos extends JFrame implements ListSelectionListener, ActionListener {
+public class MenuListarProdutos extends JFrame implements ListSelectionListener{
 
     private JPanel PainelP;
     private JComboBox<String> comboBox1;
     private JScrollPane scrollpane1;
     private JScrollPane scrollpane2;
     private JLabel infoPane;
+    private JTextField pesquisaTextField;
     private JList<String> listProds;
     private JLabel pesquisaLabel;
-    private JTextField textfield;
-    private JButton voltarButton;
-    private final DefaultListModel<Produtos> dlm = new DefaultListModel<>();
+    private DefaultListModel<Produtos> dlm = new DefaultListModel<>();
 
     public MenuListarProdutos(Loja loja){
         adicionarComponentes();
@@ -40,7 +39,6 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
     }
     private void botoes() {
         listProds.addListSelectionListener(this);
-        voltarButton.addActionListener(this);
     }
     private void listarProdutos(Loja loja){
         DefaultListModel<String> dlmS = new DefaultListModel<>();
@@ -52,28 +50,6 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
         this.listProds.setModel(dlmS);
     }
     @Override
-    public void actionPerformed(ActionEvent e){
-        if(e.getSource() == voltarButton){
-            dispose();
-        }
-        else if(e.getSource() == comboBox1){
-            String item = (String) comboBox1.getSelectedItem();
-            if(item  != null){
-                switch (item){
-                    case "Remédios" -> {
-
-                    }
-                    case "Cosméticos" -> {
-
-                    }
-                    case "Higiénicos" -> {
-
-
-                    }
-                }
-            }
-        }
-    }
     public void valueChanged(ListSelectionEvent e) {
         String base = "Nome: " + dlm.get(listProds.getSelectedIndex()).getNome() +
                 "<br>Preço: R$ " + dlm.get(listProds.getSelectedIndex()).getPreco() +
