@@ -44,7 +44,6 @@ public class MenuLogin extends JFrame implements ActionListener {
         this.setSize(640,480);
         botoes(); //nao altera o this.pack
         this.setLocationRelativeTo(null);
-        alteracaoFontes();
         this.setContentPane(this.PainelLogin);
         this.pack(); //junta tudo
     }
@@ -54,11 +53,6 @@ public class MenuLogin extends JFrame implements ActionListener {
         voltarButton.addActionListener(this);
     }
 
-
-    private void alteracaoFontes(){ //!!
-        bemVindo.setFont(new Font("Serif", Font.BOLD,36));
-        informacao.setFont(new Font("Arial", Font.BOLD,15));
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {

@@ -7,6 +7,7 @@ import Itens.Produtos;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -48,13 +49,13 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
         ArrayList<Produtos> prod = loja.getListaProdutos();
 
         String textoEscolhido = pesquisaTextField.getText().toLowerCase();
-        for(Produtos produtos:prod) {
-            if(produtos.getNome().toLowerCase().contains(textoEscolhido)) {
-                this.dlm.addElement(produtos);
-                dlmS.addElement(produtos.getNome());
 
+            for (Produtos produtos : prod) {
+                if (produtos.getNome().toLowerCase().contains(textoEscolhido)) {
+                    this.dlm.addElement(produtos);
+                    dlmS.addElement(produtos.getNome());
+                }
             }
-        }
         this.listProds.setModel(dlmS);
     }
     @Override
@@ -69,7 +70,6 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == pesquisaTextField){
-            dlm.clear();
             listarProdutos(loja);
         }
     }
