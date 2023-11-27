@@ -1,7 +1,6 @@
 package Menus;
 
 import Itens.Loja;
-import Itens.Produtos;
 import Menus.funcionarioFuncoes.MenuFuncionario;
 import Usuarios.Funcionario;
 
@@ -9,7 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class MenuLogin extends JFrame implements ActionListener {
     private JPasswordField senha;
@@ -19,7 +17,7 @@ public class MenuLogin extends JFrame implements ActionListener {
     private JButton voltarButton;
     private JLabel informacao;
     private JLabel bemVindo;
-    private Loja loja;
+    private final Loja loja;
     Funcionario teste = new Funcionario("1234", "Kaik");
 
     public MenuLogin(Loja loja) {
@@ -44,7 +42,6 @@ public class MenuLogin extends JFrame implements ActionListener {
         this.setSize(640,480);
         botoes(); //nao altera o this.pack
         this.setLocationRelativeTo(null);
-        alteracaoFontes();
         this.setContentPane(this.PainelLogin);
         this.pack(); //junta tudo
     }
@@ -52,12 +49,6 @@ public class MenuLogin extends JFrame implements ActionListener {
     private void botoes(){
         Logar.addActionListener(this);
         voltarButton.addActionListener(this);
-    }
-
-
-    private void alteracaoFontes(){ //!!
-        bemVindo.setFont(new Font("Serif", Font.BOLD,36));
-        informacao.setFont(new Font("Arial", Font.BOLD,15));
     }
 
     @Override
