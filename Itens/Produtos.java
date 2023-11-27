@@ -50,6 +50,7 @@ public abstract class Produtos {
 
     @Override
     public String toString() {
-        return String.format("| %s | %.2f | %d | %s | ", this.getNome(),this.getPreco(), this.getEstoque(), this.getFabricante());
+        return String.format("Nome: %s <br>Preço: R$%.2f <br>Estoque: %d <br>Fabricante: %s <br>", this.getNome(),this.getPreco(), this.getEstoque(), this.getFabricante());
+//        return super.toString();
     }
 }

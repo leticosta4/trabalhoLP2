@@ -18,6 +18,7 @@ public class Remedios extends Produtos {
 
     @Override
     public String toString() {
-        return super.toString() + String.format("%s | " + null + " | " + null + " | " + null + " | ", this.getTarja());
+        return super.toString() + String.format("Tarja: %s ", this.getTarja());
+//        return super.toString();
     }
 }

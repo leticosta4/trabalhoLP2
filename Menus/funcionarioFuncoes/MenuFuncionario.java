@@ -27,6 +27,7 @@ public class MenuFuncionario extends JFrame implements ActionListener{
         this.setContentPane(this.painelFuncionario);
         this.setSize(350,277);
         this.setVisible(true);
+        setLocationRelativeTo(null);
         botoes();
         this.pack();
     }
@@ -42,7 +43,7 @@ public class MenuFuncionario extends JFrame implements ActionListener{
             JOptionPane.showMessageDialog(listarProdutosButton, "Indo para o estoque");
             MenuListarProdutos listarProdutos = new MenuListarProdutos(this.loja);
         }else if(e.getSource() == atualizarProdutosButton){
-            System.out.println("em produção"); //!!
+            System.out.println("em produção");
         } else if(e.getSource() == adicionarOuRemoverButton) {
             MenuAdicionarProdutos menuAdicionarProdutos = new MenuAdicionarProdutos(this.loja);
 

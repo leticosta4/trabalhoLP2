@@ -5,46 +5,58 @@ import Itens.Loja;
 import Itens.Produtos;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
-public class MenuListarProdutos extends JFrame{
+public class MenuListarProdutos extends JFrame implements ListSelectionListener{
 
-    private JPanel Painel;
-    private JTextField textField1;
-    private JScrollPane painelInfo;
-    private JScrollPane painelLista;
-    private JList list1;
-    private JComboBox comboBox1;
-    private JLabel infoLabel;
-    private JLabel caixaPesquisa;
-    private JList listProds;
+    private JPanel PainelP;
+    private JComboBox<String> comboBox1;
+    private JScrollPane scrollpane1;
+    private JScrollPane scrollpane2;
+    private JLabel infoPane;
+    private JTextField pesquisaTextField;
+    private JList<String> listProds;
+    private JLabel pesquisaLabel;
+    private DefaultListModel<Produtos> dlm = new DefaultListModel<>();
 
     public MenuListarProdutos(Loja loja){
         adicionarComponentes();
-        listarProdutos(loja, listProds);
+        listarProdutos(loja);
     }
 
     public void adicionarComponentes(){
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setContentPane(this.PainelListar);
+        this.setContentPane(this.PainelP);
         this.setVisible(true);
         this.setSize(640,480);
         this.setLocationRelativeTo(null);
+        botoes();
     }
-    @SuppressWarnings("unchecked")
-    private void listarProdutos(Loja loja, JList jlist){
-        DefaultListModel dlm = new DefaultListModel<>();
+    private void botoes() {
+        listProds.addListSelectionListener(this);
+    }
+    private void listarProdutos(Loja loja){
+        DefaultListModel<String> dlmS = new DefaultListModel<>();
         ArrayList<Produtos> prod = loja.getListaProdutos();
-        for(Produtos produtos:prod){
-            dlm.addElement(produtos);
+        for(Produtos produtos:prod) {
+            this.dlm.addElement(produtos);
+            dlmS.addElement(produtos.getNome());
         }
-        jlist.setModel(dlm);
+        this.listProds.setModel(dlmS);
+    }
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+        String base = "Nome: " + dlm.get(listProds.getSelectedIndex()).getNome() +
+                "<br>Preço: R$ " + dlm.get(listProds.getSelectedIndex()).getPreco() +
+                "<br>Estoque: " + dlm.get(listProds.getSelectedIndex()).getEstoque();
+        this.infoPane.setText("<html>" + dlm.get(listProds.getSelectedIndex()).toString() + "</body></html>");
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
 }
 
 

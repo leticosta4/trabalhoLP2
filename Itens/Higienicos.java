@@ -27,6 +27,7 @@ public class Higienicos extends Produtos {
 
     @Override
     public String toString() {
-        return super.toString() + String.format(null + " | " + null + " | " + null + " | %d |", this.getTamPacote());
+        return super.toString() + String.format("Tamanho: %d ", this.getTamPacote());
+//        return super.toString();
     }
 }

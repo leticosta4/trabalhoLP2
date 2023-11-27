@@ -152,8 +152,6 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener , Ke
             this.fabricanteProdutoText.setText("");
             this.corProdutoText.setText("");
             this.tamanhoProdutoText.setText("");
-
-
         }
 
     @Override
