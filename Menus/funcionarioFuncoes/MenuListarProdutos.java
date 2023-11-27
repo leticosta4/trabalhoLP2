@@ -52,6 +52,7 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
             if(produtos.getNome().toLowerCase().contains(textoEscolhido)) {
                 this.dlm.addElement(produtos);
                 dlmS.addElement(produtos.getNome());
+
             }
         }
         this.listProds.setModel(dlmS);
