@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
-public class MenuListarProdutos extends JFrame implements ListSelectionListener{
+public class MenuListarProdutos extends JFrame implements ListSelectionListener, ActionListener{
 
     private JPanel PainelP;
     private JComboBox<String> comboBox1;
@@ -23,6 +23,8 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener{
     private JList<String> listProds;
     private JLabel pesquisaLabel;
     private DefaultListModel<Produtos> dlm = new DefaultListModel<>();
+    private JButton voltarButton;
+    private JTextField textfield;
 
     public MenuListarProdutos(Loja loja){
         adicionarComponentes();
@@ -39,6 +41,7 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener{
     }
     private void botoes() {
         listProds.addListSelectionListener(this);
+        voltarButton.addActionListener(this);
     }
     private void listarProdutos(Loja loja){
         DefaultListModel<String> dlmS = new DefaultListModel<>();
@@ -48,6 +51,28 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener{
             dlmS.addElement(produtos.getNome());
         }
         this.listProds.setModel(dlmS);
+    }
+    @Override
+    public void actionPerformed(ActionEvent e){
+        if(e.getSource() == voltarButton){
+            dispose();
+        }
+        else if(e.getSource() == comboBox1){
+            String item = (String) comboBox1.getSelectedItem();
+            if(item  != null){
+                switch (item){
+                    case "Remédios" -> {
+
+                    }
+                    case "Cosméticos" -> {
+
+                    }
+                    case "Higiénicos" -> {
+
+                    }
+                }
+            }
+        }
     }
     @Override
     public void valueChanged(ListSelectionEvent e) {
