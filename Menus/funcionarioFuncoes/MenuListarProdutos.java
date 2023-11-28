@@ -70,13 +70,15 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
             if(item  != null){
                 switch (item){
                     case "Remédios" -> {
+//oov
 
                     }
                     case "Cosméticos" -> {
+//oov
 
                     }
                     case "Higiénicos" -> {
-
+//oov
                     }
                 }
             }
