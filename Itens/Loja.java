@@ -1,22 +1,20 @@
 package Itens;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 import Usuarios.Funcionario;
 
-public class Loja {
+public class Loja{
   private String nome;
   private ArrayList<Funcionario> ListaFuncionarios = new ArrayList<Funcionario>();
   private ArrayList<Produtos> ListaProdutos = new ArrayList<Produtos>();
-  public Loja(){
-    this.nome = "Conglomerado Let";
-  }
+  public Loja(){this.nome = "Conglomerado Let";}
 
   public String getNome(){
     return this.nome;
   }
   public void AdicionarProduto(Produtos produto){
     this.ListaProdutos.add(produto);
+
   }
 
   public ArrayList<Produtos> getListaProdutos() {
@@ -53,4 +51,6 @@ public class Loja {
         break;
     }
   }
+
+
 }

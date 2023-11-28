@@ -96,14 +96,6 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="67332" class="javax.swing.JButton" binding="voltarButton" default-binding="true">
-        <constraints>
-          <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Voltar"/>
-        </properties>
-      </component>
       <scrollpane id="82ee5" binding="scrollpane1">
         <constraints>
           <grid row="1" column="4" row-span="1" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
@@ -124,6 +116,14 @@
           </component>
         </children>
       </scrollpane>
+      <component id="67332" class="javax.swing.JButton" binding="voltarButton" default-binding="true">
+        <constraints>
+          <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Voltar"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>

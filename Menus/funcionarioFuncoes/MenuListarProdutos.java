@@ -86,10 +86,7 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
     }
     @Override
     public void valueChanged(ListSelectionEvent e) {
-        String base = "Nome: " + dlm.get(listProds.getSelectedIndex()).getNome() +
-                "<br>Preço: R$ " + dlm.get(listProds.getSelectedIndex()).getPreco() +
-                "<br>Estoque: " + dlm.get(listProds.getSelectedIndex()).getEstoque();
-        this.infoPane.setText("<html>" + dlm.get(listProds.getSelectedIndex()).toString() + "</body></html>");
+        this.infoPane.setText("<html>" + dlm.get(listProds.getSelectedIndex()).toString() + "</html>");
     }
 }
 
