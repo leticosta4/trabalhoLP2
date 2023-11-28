@@ -18,13 +18,13 @@ public class Loja{
   }
 
   public ArrayList<Produtos> getListaProdutos() {
-    return ListaProdutos;
+    return this.ListaProdutos;
   }
 
   public void RemoverProduto(String nome){ //o remover produto do funcionario
-    for (int i = 0; i < ListaProdutos.size(); i++) {
-      if(ListaProdutos.get(i).getNome().equalsIgnoreCase(nome)){
-        ListaProdutos.remove(i);
+    for (int i = 0; i < this.ListaProdutos.size(); i++) {
+      if(this.ListaProdutos.get(i).getNome().equalsIgnoreCase(nome)){
+        this.ListaProdutos.remove(i);
         break;
       }
     }

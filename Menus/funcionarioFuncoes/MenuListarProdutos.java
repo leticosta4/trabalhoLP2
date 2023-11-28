@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class MenuListarProdutos extends JFrame implements ListSelectionListener, ActionListener, MouseListener {
 
+    private String produtoAExcluir = "";
     private JPanel PainelP;
     private JComboBox<String> comboBox1;
     private JScrollPane scrollpane1;
@@ -26,6 +27,8 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
     private JLabel pesquisaLabel;
     private DefaultListModel<Produtos> dlm = new DefaultListModel<>();
     private JButton voltarButton;
+    private JButton removerButton;
+    private JButton modificarButton;
     private Loja loja;
     public MenuListarProdutos(Loja loja){
         this.loja = loja;
@@ -46,6 +49,7 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
         voltarButton.addActionListener(this);
         pesquisaTextField.addActionListener(this);
         listProds.addMouseListener(this);
+        removerButton.addActionListener(this);
 
     }
     private void listarProdutos(Loja loja) {
@@ -86,7 +90,12 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
                     }
                 }
             }
+        } else if (e.getSource() == removerButton) {
+            loja.RemoverProduto(this.produtoAExcluir);
+            this.produtoAExcluir = "";
+
         }
+        listarProdutos(loja);
     }
     @Override
     public void valueChanged(ListSelectionEvent e) {
@@ -98,7 +107,8 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
         if (e.getClickCount() == 1) { // Verifica se foi um clique simples
             int index = listProds.locationToIndex(e.getPoint()); // Obtém o índice do item clicado
             if (index != -1) { // Verifica se um item foi clicado
-                loja.RemoverProduto(listProds.getModel().getElementAt(index));
+
+               this.produtoAExcluir = listProds.getModel().getElementAt(index);
                 // Faça o que for necessário com o texto do item clicado
             }
         }

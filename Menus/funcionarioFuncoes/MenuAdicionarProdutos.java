@@ -96,7 +96,7 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener , Ke
 
                         }
                     }
-                    case "Higiénicos" -> {
+                    case "Higiênicos" -> {
                         tarja.setVisible(false);
                         tarjaBox.setVisible(false);
                         resistenciaAgua.setVisible(false);

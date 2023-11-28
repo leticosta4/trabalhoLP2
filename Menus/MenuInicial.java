@@ -19,11 +19,15 @@ public class MenuInicial extends JFrame implements ActionListener{
     Produtos remedio01 = new Remedios("Tylenol", 50.0, 2, "Leticia", "branca");
     Produtos comestico01 = new Cosmeticos("Esmalte", 50.0, 2, "Leticia", true, "azul");
     Produtos higienico01 = new Higienicos("Papel", 15, 2, "bauduco", 3);
+    Produtos comestico02 = new Cosmeticos("Teste1", 50.0, 2, "Leticia", true, "azul");
+    Produtos comestico03 = new Cosmeticos("Esmalte2", 50.0, 2, "Leticia", true, "azul");
 
     public MenuInicial(){
         this.let.AdicionarProduto(remedio01);
         this.let.AdicionarProduto(comestico01);
         this.let.AdicionarProduto(higienico01);
+        this.let.AdicionarProduto(comestico02);
+        this.let.AdicionarProduto(comestico03);
 
         iniciarComponentes();
     }
