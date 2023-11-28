@@ -24,9 +24,9 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
     private JLabel pesquisaLabel;
     private DefaultListModel<Produtos> dlm = new DefaultListModel<>();
     private JButton voltarButton;
-    private JTextField textfield;
-
+    private Loja loja;
     public MenuListarProdutos(Loja loja){
+        this.loja = loja;
         adicionarComponentes();
         listarProdutos(loja);
     }
@@ -42,20 +42,28 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
     private void botoes() {
         listProds.addListSelectionListener(this);
         voltarButton.addActionListener(this);
+        pesquisaTextField.addActionListener(this);
     }
-    private void listarProdutos(Loja loja){
+    private void listarProdutos(Loja loja) {
         DefaultListModel<String> dlmS = new DefaultListModel<>();
         ArrayList<Produtos> prod = loja.getListaProdutos();
-        for(Produtos produtos:prod) {
-            this.dlm.addElement(produtos);
-            dlmS.addElement(produtos.getNome());
+
+        String textoEscolhido = pesquisaTextField.getText().toLowerCase();
+        for (Produtos produtos : prod) {
+            if (produtos.getNome().toLowerCase().contains(textoEscolhido)) {
+                this.dlm.addElement(produtos);
+                dlmS.addElement(produtos.getNome());
+            }
+            this.listProds.setModel(dlmS);
         }
-        this.listProds.setModel(dlmS);
     }
     @Override
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == voltarButton){
             dispose();
+        }
+        else if (e.getSource() == pesquisaTextField){
+            listarProdutos(loja);
         }
         else if(e.getSource() == comboBox1){
             String item = (String) comboBox1.getSelectedItem();
@@ -81,7 +89,6 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
                 "<br>Estoque: " + dlm.get(listProds.getSelectedIndex()).getEstoque();
         this.infoPane.setText("<html>" + dlm.get(listProds.getSelectedIndex()).toString() + "</body></html>");
     }
-
 }
 
 
