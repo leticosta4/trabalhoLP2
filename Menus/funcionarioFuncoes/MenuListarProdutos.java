@@ -54,16 +54,17 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
     }
     private void listarProdutos(Loja loja) {
         DefaultListModel<String> dlmS = new DefaultListModel<>();
-        ArrayList<Produtos> prod = loja.getListaProdutos();
-
+        ArrayList<Produtos> prod = this.loja.getListaProdutos();
+       // this.dlm.clear();
         String textoEscolhido = pesquisaTextField.getText().toLowerCase();
         for (Produtos produtos : prod) {
             if (produtos.getNome().toLowerCase().contains(textoEscolhido)) {
                 this.dlm.addElement(produtos);
                 dlmS.addElement(produtos.getNome());
             }
-            this.listProds.setModel(dlmS);
+
         }
+        this.listProds.setModel(dlmS);
     }
     @Override
     public void actionPerformed(ActionEvent e){
@@ -93,13 +94,19 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
         } else if (e.getSource() == removerButton) {
             loja.RemoverProduto(this.produtoAExcluir);
             this.produtoAExcluir = "";
-
+            listarProdutos(loja);
         }
-        listarProdutos(loja);
+
     }
     @Override
     public void valueChanged(ListSelectionEvent e) {
-        this.infoPane.setText("<html>" + dlm.get(listProds.getSelectedIndex()).toString() + "</html>");
+        System.out.println((listProds.getSelectedIndex()));
+        if (!e.getValueIsAdjusting() && listProds.getSelectedIndex() != -1) {
+            Object selectedObject = dlm.getElementAt(listProds.getSelectedIndex());
+            if (selectedObject != null) {
+                this.infoPane.setText("<html>" + selectedObject + "</html>");
+            }
+        }
     }
 
     @Override
@@ -108,7 +115,7 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
             int index = listProds.locationToIndex(e.getPoint()); // Obtém o índice do item clicado
             if (index != -1) { // Verifica se um item foi clicado
 
-               this.produtoAExcluir = listProds.getModel().getElementAt(index);
+                this.produtoAExcluir = listProds.getModel().getElementAt(index);
                 // Faça o que for necessário com o texto do item clicado
             }
         }
@@ -134,6 +141,3 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
 
     }
 }
-
-
-
