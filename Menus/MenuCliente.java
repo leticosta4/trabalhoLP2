@@ -1,6 +1,7 @@
 package Menus;
 
 import Itens.Loja;
+import Menus.funcionarioFuncoes.MenuListarProdutos;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,13 +14,21 @@ public class MenuCliente extends JFrame implements ActionListener{
     private JButton sairButton;
     private JButton carrinhoButton;
     private JLabel mensagem;
+    private Loja loja;
     public MenuCliente(Loja loja) {
+        this.loja = loja;
         adicionarComponentes();
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == sairButton){
             dispose();
+        }
+        else if(e.getSource() == LojaButton){
+            MenuListarProdutos menuListarProdutos = new MenuListarProdutos(loja);
+        }
+        else if(e.getSource() == carrinhoButton){
+
         }
     }
 
