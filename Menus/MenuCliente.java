@@ -26,8 +26,10 @@ public class MenuCliente extends JFrame implements ActionListener{
         }
         else if(e.getSource() == LojaButton){
             MenuListarProdutos menuListarProdutos = new MenuListarProdutos(loja);
+            //mudar essa exibiçao p n ser a mesma do funcionario
         }
         else if(e.getSource() == carrinhoButton){
+            //visualizaçao do carrinho de compras
 
         }
     }

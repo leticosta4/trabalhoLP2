@@ -10,7 +10,7 @@ public class MenuFuncionario extends JFrame implements ActionListener{
     private JPanel painelFuncionario;
     private JButton listarProdutosButton;
     private JButton atualizarProdutosButton;
-    private JButton adicionarOuRemoverButton;
+    private JButton adicionarButton; //tirando o remover do menu
     private JButton sairButton;
 
     private Loja loja;
@@ -18,8 +18,6 @@ public class MenuFuncionario extends JFrame implements ActionListener{
     public  MenuFuncionario(Loja loja){
         this.loja = loja;
         adicionarComponentes();
-
-
     }
 
     private void adicionarComponentes(){
@@ -34,7 +32,7 @@ public class MenuFuncionario extends JFrame implements ActionListener{
     private void botoes(){
         listarProdutosButton.addActionListener(this);
         atualizarProdutosButton.addActionListener(this);
-        adicionarOuRemoverButton.addActionListener(this);
+        adicionarButton.addActionListener(this);
         sairButton.addActionListener(this);
     }
     @Override
@@ -44,7 +42,7 @@ public class MenuFuncionario extends JFrame implements ActionListener{
             MenuListarProdutos listarProdutos = new MenuListarProdutos(this.loja);
         }else if(e.getSource() == atualizarProdutosButton){
             System.out.println("em produção");
-        } else if(e.getSource() == adicionarOuRemoverButton) {
+        } else if(e.getSource() == adicionarButton) {
             MenuAdicionarProdutos menuAdicionarProdutos = new MenuAdicionarProdutos(this.loja);
 
         } else if(e.getSource() == sairButton){

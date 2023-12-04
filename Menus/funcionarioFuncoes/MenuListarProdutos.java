@@ -109,7 +109,7 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
             listarProdutos();
 
         } else if (e.getSource() == modificarButton) {
-            //fazer o modoficar dados de produtos
+            //fazer o modificar dados de produtos
         }
 
     }
