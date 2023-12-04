@@ -1,7 +1,6 @@
 package Menus;
 
 import Itens.Loja;
-import Menus.funcionarioFuncoes.MenuListarProdutos;
 import Usuarios.Cliente;
 
 import javax.swing.*;

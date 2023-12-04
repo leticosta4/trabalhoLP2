@@ -1,4 +1,4 @@
-package Menus.funcionarioFuncoes;
+package Menus;
 
 
 import Itens.Loja;

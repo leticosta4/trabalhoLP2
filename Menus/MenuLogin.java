@@ -1,15 +1,11 @@
 package Menus;
 
 import Itens.Loja;
-import Itens.Produtos;
-import Menus.funcionarioFuncoes.MenuFuncionario;
 import Usuarios.Funcionario;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class MenuLogin extends JFrame implements ActionListener {
     private JPasswordField senha;
