@@ -18,14 +18,14 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
 
     private String produtoAExcluir = "";
     private JPanel PainelP;
-    private JComboBox<String> comboBox1;
+    private JComboBox<String> comboBox1; //caixinha de seleçao de tipo de produto
     private JScrollPane scrollpane1;
     private JScrollPane scrollpane2;
     private JLabel infoPane;
     private JTextField pesquisaTextField;
     private JList<String> listProds;
     private JLabel pesquisaLabel;
-    private DefaultListModel<Produtos> dlm = new DefaultListModel<>();
+    private DefaultListModel<Produtos> dlm = new DefaultListModel<>(); //manipulaçao de elementos da lista
     private JButton voltarButton;
     private JButton removerButton;
     private JButton modificarButton;
@@ -56,14 +56,16 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
 
     }
     private void listarProdutos() {
-        DefaultListModel<String> dlmS = new DefaultListModel<>();
+        //dlm e p usar o JList
+        DefaultListModel<String> dlmS = new DefaultListModel<>(); //dlm especificado p string
         ArrayList<Produtos> prod = this.loja.getListaProdutos();
-        this.dlm.clear();
+        this.dlm.clear(); //dlm geral para os produtos
+        //na hora de mostrar a lista tem que apagar tudo p depois recriar
         String textoEscolhido = pesquisaTextField.getText().toLowerCase();
 
         for (Produtos produtos : prod) {
             System.out.println(produtos.getClass().getName());
-            if (produtos.getNome().toLowerCase().contains(textoEscolhido) && produtos.getClass().getName().contains(this.nomeApesquisar) ) {
+            if (produtos.getNome().toLowerCase().contains(textoEscolhido) && produtos.getClass().getName().contains(this.nomeApesquisar)){
                 this.dlm.addElement(produtos);
                 dlmS.addElement(produtos.getNome());
             }
@@ -107,21 +109,20 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
             listarProdutos();
 
         } else if (e.getSource() == modificarButton) {
-
+            //fazer o modoficar dados de produtos
         }
 
     }
     @Override
-    public void valueChanged(ListSelectionEvent e) {
-
-        if (!e.getValueIsAdjusting() && listProds.getSelectedIndex() != -1) {
+    public void valueChanged(ListSelectionEvent e) { //seleçao na lista alterada
+        //produto nao selecionado index e -1. taratamento de erro para "ignorar" esse -1:
+        if (!e.getValueIsAdjusting() && (listProds.getSelectedIndex() != -1)) {
             Produtos selectedObject = dlm.getElementAt(listProds.getSelectedIndex());
             if (selectedObject != null) {
                 this.infoPane.setText("<html>" + selectedObject + "</html>");
             }
         }
     }
-
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getClickCount() == 1) { // Verifica se foi um clique simples
@@ -135,21 +136,17 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
 
     @Override
     public void mousePressed(MouseEvent e) {
-
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-
     }
 }
