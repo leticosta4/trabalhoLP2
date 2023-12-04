@@ -41,25 +41,25 @@ public class Cliente {
         this.idade = idade;
     }
 
-    public void adicionarNoCarrinho(Produtos produto){
-        boolean podeComprar = true;
-        if(produto instanceof Remedios) {
-            podeComprar = verificarTarja((Remedios) produto);
-        }
-        if(produto.getEstoque() >= 1 && podeComprar) {
-            produto.setEstoque(produto.getEstoque() - 1);
-            this.carrinhoCompras.add(produto);
-        }
-        else{
-            System.out.println("Inválido");
-        }
-    }
-    public void listarCarrinho(){
-        for (Produtos produto: carrinhoCompras) {
-            System.out.printf("%s, %.2f\n", produto.getNome(),produto.getPreco());
-        }
+    public ArrayList<Produtos> getCarrinhoCompras() {
+        return carrinhoCompras;
     }
 
+    public void adicionarNoCarrinho(Produtos produto){
+
+        if(produto != null) {
+            boolean podeComprar = true;
+            if (produto instanceof Remedios) {
+                podeComprar = verificarTarja((Remedios) produto);
+            }
+            if (produto.getEstoque() >= 1 && podeComprar) {
+                produto.setEstoque(produto.getEstoque() - 1);
+                this.carrinhoCompras.add(produto);
+            } else {
+                System.out.println("Inválido");
+            }
+        }
+    }
     public void excluirDoCarrinho(String nomeProduto){
         for (int i = 0; i <carrinhoCompras.size() ; i++) {
             if(nomeProduto.equalsIgnoreCase(carrinhoCompras.get(i).getNome())){
@@ -70,6 +70,9 @@ public class Cliente {
         }
     }
 
+    public void finalizarCompra(){
+        carrinhoCompras.clear();
+    }
     public boolean verificarTarja(Remedios remedio){
         if(remedio.getTarja().equalsIgnoreCase("preta")){
             return this.idade >= 18 && this.receita;

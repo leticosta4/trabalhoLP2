@@ -2,6 +2,7 @@ package Menus;
 
 import Itens.Loja;
 import Menus.funcionarioFuncoes.MenuListarProdutos;
+import Usuarios.Cliente;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +16,7 @@ public class MenuCliente extends JFrame implements ActionListener{
     private JButton carrinhoButton;
     private JLabel mensagem;
     private Loja loja;
+    private Cliente cliente = new Cliente("Carlos",true,20);
     public MenuCliente(Loja loja) {
         this.loja = loja;
         adicionarComponentes();
@@ -25,7 +27,7 @@ public class MenuCliente extends JFrame implements ActionListener{
             dispose();
         }
         else if(e.getSource() == LojaButton){
-            MenuListarProdutos menuListarProdutos = new MenuListarProdutos(loja);
+            MenuListarProdutos menuListarProdutos = new MenuListarProdutos(loja, this.cliente);
         }
         else if(e.getSource() == carrinhoButton){
 

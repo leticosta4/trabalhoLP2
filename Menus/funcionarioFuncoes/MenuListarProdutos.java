@@ -3,6 +3,7 @@ package Menus.funcionarioFuncoes;
 
 import Itens.Loja;
 import Itens.Produtos;
+import Usuarios.Cliente;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -16,9 +17,9 @@ import java.util.ArrayList;
 
 public class MenuListarProdutos extends JFrame implements ListSelectionListener, ActionListener, MouseListener {
 
-    private String produtoAExcluir = "";
+    private String produtoASelecionado = "";
     private JPanel PainelP;
-    private JComboBox<String> comboBox1;
+    private JComboBox<String> tiposProdutosBox;
     private JScrollPane scrollpane1;
     private JScrollPane scrollpane2;
     private JLabel infoPane;
@@ -29,21 +30,28 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
     private JButton voltarButton;
     private JButton removerButton;
     private JButton modificarButton;
+    private JButton verCarrinhoButton;
+    private JButton adicionarCompraButton;
+    private JButton finalizarCompraButton;
     private Loja loja;
+    private Cliente cliente;
+    private int especificarLista = 0; // Para decidir se vai listar os produtos da loja ou o carrinho do cliente
     private String nomeApesquisar = "";
-    public MenuListarProdutos(Loja loja){
+    public MenuListarProdutos(Loja loja, Cliente cliente){
         this.loja = loja;
+        this.cliente = cliente;
         adicionarComponentes();
-        listarProdutos();
+        listarProdutos(especificarLista);
     }
 
-    public void adicionarComponentes(){
+    public void adicionarComponentes() {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setContentPane(this.PainelP);
         this.setVisible(true);
-        this.setSize(640,480);
+        this.setSize(640, 480);
         this.setLocationRelativeTo(null);
         botoes();
+        if (cliente != null) ativarModoCliente();
     }
     private void botoes() {
         this.listProds.addListSelectionListener(this);
@@ -52,12 +60,23 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
         this.listProds.addMouseListener(this);
         this.removerButton.addActionListener(this);
         this.modificarButton.addActionListener(this);
-        this.comboBox1.addActionListener(this);
-
+        this.tiposProdutosBox.addActionListener(this);
+        this.adicionarCompraButton.addActionListener(this);
+        this.verCarrinhoButton.addActionListener(this);
+        this.finalizarCompraButton.addActionListener(this);
     }
-    private void listarProdutos() {
+
+    private void ativarModoCliente(){
+        modificarButton.setText("Ver loja");
+        this.verCarrinhoButton.setVisible(true);
+        removerButton.setText("Remover do Carrinho");
+        adicionarCompraButton.setVisible(true);
+        finalizarCompraButton.setVisible(true);
+    }
+    private void listarProdutos(int qualLista) {
         DefaultListModel<String> dlmS = new DefaultListModel<>();
-        ArrayList<Produtos> prod = this.loja.getListaProdutos();
+
+        ArrayList<Produtos> prod = qualLista == 0 ? this.loja.getListaProdutos() : this.cliente.getCarrinhoCompras();
         this.dlm.clear();
         String textoEscolhido = pesquisaTextField.getText().toLowerCase();
 
@@ -77,57 +96,77 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
             dispose();
         }
         else if (e.getSource() == pesquisaTextField){
-            listarProdutos();
+            listarProdutos(especificarLista);
         }
-        else if(e.getSource() == comboBox1){
-            String item = (String) comboBox1.getSelectedItem();
+        else if(e.getSource() == tiposProdutosBox){
+            String item = (String) tiposProdutosBox.getSelectedItem();
             if(item  != null){
                 switch (item){
                     case "Remédios" -> {
                         this.nomeApesquisar = "Remedios";
-                        listarProdutos();
+                        listarProdutos(especificarLista);
                     }
                     case "Cosméticos" -> {
                         this.nomeApesquisar = "Cosmeticos";
-                       listarProdutos();
+                       listarProdutos(especificarLista);
                     }
                     case "Higiênicos" -> {
                         this.nomeApesquisar = "Higienicos";
-                        listarProdutos();
+                        listarProdutos(especificarLista);
                     }
                     case "Todos" ->{
                         this.nomeApesquisar = "";
-                        listarProdutos();
+                        listarProdutos(especificarLista);
                     }
                 }
             }
-        } else if (e.getSource() == removerButton) {
-            loja.RemoverProduto(this.produtoAExcluir);
-            this.produtoAExcluir = "";
-            listarProdutos();
+        } else if (e.getSource() == removerButton) { //Quando o cliente é diferente de null, o remover vira remover do Carrinho;
+            if (cliente != null) cliente.excluirDoCarrinho(this.produtoASelecionado);
+
+             else loja.RemoverProduto(this.produtoASelecionado);
+
+            this.produtoASelecionado = "";
+            listarProdutos(especificarLista);
 
         } else if (e.getSource() == modificarButton) {
-
+            if(cliente != null)
+                especificarLista = 0; //Nesse caso o modificarButton vira a opção para ver a loja
+            listarProdutos(especificarLista);
         }
-
+        else if(e.getSource() == verCarrinhoButton){
+            especificarLista = 1;
+            listarProdutos(especificarLista);
+        } else if (e.getSource() == finalizarCompraButton) {
+            JOptionPane.showMessageDialog(finalizarCompraButton,"Compra Finalizada com Sucesso");
+            this.cliente.finalizarCompra();
+        }
+        else if(e.getSource() == adicionarCompraButton){
+            Produtos produtoAdicionar = null;
+            for (Produtos produtos : loja.getListaProdutos()){
+                if(produtoASelecionado.equalsIgnoreCase(produtos.getNome())) {
+                    produtoAdicionar = produtos;
+                }
+            }
+            cliente.adicionarNoCarrinho(produtoAdicionar);
+        }
     }
     @Override
     public void valueChanged(ListSelectionEvent e) {
-
         if (!e.getValueIsAdjusting() && listProds.getSelectedIndex() != -1) {
-            Produtos selectedObject = dlm.getElementAt(listProds.getSelectedIndex());
-            if (selectedObject != null) {
-                this.infoPane.setText("<html>" + selectedObject + "</html>");
+            Produtos produtoSelecionado = dlm.getElementAt(listProds.getSelectedIndex());
+            if (produtoSelecionado != null) {
+                this.infoPane.setText("<html>" + produtoSelecionado + "</html>");
             }
         }
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (e.getClickCount() == 1) { // Verifica se foi um clique simples
-            int index = listProds.locationToIndex(e.getPoint()); // Obtém o índice do item clicado
-            if (index != -1) { // Verifica se um item foi clicado
-                this.produtoAExcluir = listProds.getModel().getElementAt(index);
+        if (e.getClickCount() == 1) { //
+            int i = listProds.locationToIndex(e.getPoint()); // Obtém o índice do item clicado
+            if (i != -1) { // Verifica se um item foi clicado
+                this.produtoASelecionado = listProds.getModel().getElementAt(i);
+
                 // Faça o que for necessário com o texto do item clicado
             }
         }

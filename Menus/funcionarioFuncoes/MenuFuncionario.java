@@ -41,7 +41,7 @@ public class MenuFuncionario extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == listarProdutosButton){
             JOptionPane.showMessageDialog(listarProdutosButton, "Indo para o estoque");
-            MenuListarProdutos listarProdutos = new MenuListarProdutos(this.loja);
+            MenuListarProdutos listarProdutos = new MenuListarProdutos(this.loja, null);
         }else if(e.getSource() == atualizarProdutosButton){
             System.out.println("em produção");
         } else if(e.getSource() == adicionarOuRemoverButton) {
