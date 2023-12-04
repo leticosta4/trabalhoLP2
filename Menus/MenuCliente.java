@@ -1,6 +1,7 @@
 package Menus;
 
 import Itens.Loja;
+import Menus.funcionarioFuncoes.MenuAdicionarProdutos;
 import Menus.funcionarioFuncoes.MenuListarProdutos;
 
 import javax.swing.*;
@@ -29,8 +30,9 @@ public class MenuCliente extends JFrame implements ActionListener{
             //mudar essa exibiçao p n ser a mesma do funcionario
         }
         else if(e.getSource() == carrinhoButton){
-            //visualizaçao do carrinho de compras
-
+            MenuListarProdutos menuListarProdutos = new MenuListarProdutos(loja);
+            //adicionar flag
+            //no final exibir o carrinho formado
         }
     }
 
