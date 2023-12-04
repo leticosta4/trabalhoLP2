@@ -45,7 +45,7 @@
           <text value="Listar Produtos"/>
         </properties>
       </component>
-      <component id="f0788" class="javax.swing.JButton" binding="adicionarOuRemoverButton" default-binding="true">
+      <component id="f0788" class="javax.swing.JButton" binding="adicionarButton">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="200" height="40"/>
@@ -54,7 +54,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Adicionar ou Remover "/>
+          <text value="Adicionar "/>
         </properties>
       </component>
       <component id="28d30" class="javax.swing.JButton" binding="atualizarProdutosButton" default-binding="true">

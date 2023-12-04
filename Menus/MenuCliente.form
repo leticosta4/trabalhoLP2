@@ -36,7 +36,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Produtos"/>
+          <text value="Loja"/>
         </properties>
       </component>
       <component id="b2582" class="javax.swing.JButton" binding="carrinhoButton" default-binding="true">

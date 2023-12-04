@@ -1,4 +1,4 @@
-package Menus.funcionarioFuncoes;
+package Menus;
 
 import Itens.Loja;
 
@@ -10,7 +10,6 @@ import java.awt.event.KeyListener;
 
 public class MenuAdicionarProdutos extends JFrame implements ActionListener , KeyListener {
     private JComboBox tiposProdutosBox;
-
     private JPanel painelAdicionarProdutos;
     private JTextField fabricanteProdutoText;
     private JTextField corProdutoText;
@@ -49,7 +48,7 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener , Ke
         setarKeyListener();
         this.pack();
     }
-    private void setarActionListerner(){
+    private void setarActionListerner(){ //mesma coisa que o metodo botoes() faz nas outras classes
         tiposProdutosBox.addActionListener(this);
         confirmar.addActionListener(this);
         sairButton.addActionListener(this);
@@ -126,10 +125,10 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener , Ke
         String fabricante = fabricanteProdutoText.getText();
         int estoque = Integer.parseInt(estoqueProdutoText.getText());
 
-        switch (num) {
+        switch(num){
             case 1:
                 String tarja = tarjaBox.getSelectedItem().toString();
-                this.let.criarProduto(nomeProd,preco,fabricante,estoque,tarja, null,null,null,num);
+                this.let.criarProduto(nomeProd,preco,fabricante,estoque,tarja,null,null,null,num);
                 break;
             case 2:
                 String resistenciaAgua = resistenciaAguaBox.getSelectedItem().toString();
@@ -164,7 +163,7 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener , Ke
             if(Character.isDigit(charColetado)) e.consume(); //Só letra
             }
         else if (e.getSource() == precoProdutoText) {
-            if (!Character.isDigit(charColetado) && charColetado != KeyEvent.VK_BACK_SPACE && charColetado != KeyEvent.VK_DELETE && charColetado != KeyEvent.VK_PERIOD) e.consume(); //Só numeros e o ponto '.' por causa do double
+            if (!Character.isDigit(charColetado) && (charColetado != KeyEvent.VK_BACK_SPACE) && (charColetado != KeyEvent.VK_DELETE) && charColetado != KeyEvent.VK_PERIOD) e.consume(); //Só numeros e o ponto '.' por causa do double
         }
     }
 
