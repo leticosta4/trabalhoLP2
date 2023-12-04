@@ -1,8 +1,9 @@
-package Menus.funcionarioFuncoes;
+package Menus;
 
 
 import Itens.Loja;
 import Itens.Produtos;
+import Usuarios.Cliente;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -31,8 +32,19 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
     private JButton modificarButton;
     private Loja loja;
     private String nomeApesquisar = "";
-    public MenuListarProdutos(Loja loja){
+    private Boolean flagAdm;
+    private Cliente c01 = new Cliente("Alysson", true, 19);
+    public MenuListarProdutos(Loja loja, Boolean flagAdm){
         this.loja = loja;
+        this.flagAdm = flagAdm;
+        adicionarComponentes();
+        listarProdutos();
+    }
+
+    public MenuListarProdutos(Loja loja, Boolean flagAdm, Cliente c01){
+        this.loja = loja;
+        this.flagAdm = flagAdm;
+        this.c01 = c01;
         adicionarComponentes();
         listarProdutos();
     }

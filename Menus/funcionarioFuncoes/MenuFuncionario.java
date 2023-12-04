@@ -1,6 +1,8 @@
 package Menus.funcionarioFuncoes;
 
 import Itens.Loja;
+import Menus.MenuAdicionarProdutos;
+import Menus.MenuListarProdutos;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -39,7 +41,7 @@ public class MenuFuncionario extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == listarProdutosButton){
             JOptionPane.showMessageDialog(listarProdutosButton, "Indo para o estoque");
-            MenuListarProdutos listarProdutos = new MenuListarProdutos(this.loja);
+            MenuListarProdutos listarProdutos = new MenuListarProdutos(this.loja, true);
         }else if(e.getSource() == atualizarProdutosButton){
             System.out.println("em produção");
         } else if(e.getSource() == adicionarButton) {

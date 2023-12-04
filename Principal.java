@@ -1,13 +1,6 @@
 
-import Itens.Higienicos;
 import Itens.Loja;
-import Itens.Produtos;
-import Itens.Remedios;
 import Menus.MenuInicial;
-import Menus.funcionarioFuncoes.MenuListarProdutos;
-import Usuarios.Cliente;
-import Menus.*;
-import Usuarios.Funcionario;
 
 import javax.swing.*;
 

@@ -1,4 +1,4 @@
-package Menus.funcionarioFuncoes;
+package Menus;
 
 import Itens.Loja;
 
@@ -10,7 +10,6 @@ import java.awt.event.KeyListener;
 
 public class MenuAdicionarProdutos extends JFrame implements ActionListener , KeyListener {
     private JComboBox tiposProdutosBox;
-
     private JPanel painelAdicionarProdutos;
     private JTextField fabricanteProdutoText;
     private JTextField corProdutoText;
