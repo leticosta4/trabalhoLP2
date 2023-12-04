@@ -19,8 +19,8 @@ public class MenuInicial extends JFrame implements ActionListener{
     Produtos remedio01 = new Remedios("Tylenol", 50.0, 2, "Leticia", "branca");
     Produtos comestico01 = new Cosmeticos("Esmalte", 50.0, 2, "Leticia", true, "azul");
     Produtos higienico01 = new Higienicos("Papel", 15, 2, "bauduco", 3);
-    Produtos comestico02 = new Cosmeticos("Teste1", 50.0, 2, "Leticia", true, "azul");
-    Produtos comestico03 = new Cosmeticos("Esmalte2", 50.0, 2, "Leticia", true, "azul");
+    Produtos comestico02 = new Cosmeticos("Shampoo", 50.0, 2, "Leticia", true, "azul");
+    Produtos comestico03 = new Cosmeticos("Esmalte", 50.0, 2, "Leticia", true, "vermelho");
 
     public MenuInicial(){
         this.let.AdicionarProduto(remedio01);
@@ -41,7 +41,6 @@ public class MenuInicial extends JFrame implements ActionListener{
         this.setContentPane(this.PainelInicial);
         this.setSize(640,480);
         this.setLocationRelativeTo(null);
-
         alterarFonte();
         botoes();
     }
@@ -58,7 +57,7 @@ public class MenuInicial extends JFrame implements ActionListener{
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) { //esse "e" e do actionListener
         //passando a loja como parametro p os 2 tipos
         if(e.getSource() == clienteButton){
             JOptionPane.showMessageDialog(clienteButton, "Indo para menu do cliente");

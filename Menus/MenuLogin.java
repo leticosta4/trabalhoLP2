@@ -25,7 +25,6 @@ public class MenuLogin extends JFrame implements ActionListener {
     public MenuLogin(Loja loja) {
         this.loja = loja;
         adicionarComponentes();
-
     }
 
     boolean loginValido(String usuario){
@@ -43,7 +42,7 @@ public class MenuLogin extends JFrame implements ActionListener {
         this.setVisible(true);
         this.setSize(640,480);
         botoes(); //nao altera o this.pack
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null); //p deixar a tela no meio
         this.setContentPane(this.PainelLogin);
         this.pack(); //junta tudo
     }
@@ -55,7 +54,7 @@ public class MenuLogin extends JFrame implements ActionListener {
 
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e){
         if(e.getSource() == Logar){
             realizarLogin();
         } else if (e.getSource() == voltarButton) {

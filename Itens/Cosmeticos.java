@@ -38,6 +38,6 @@ public class Cosmeticos extends Produtos {
         String res = "não";
         if(this.resistenciaAgua) res = "sim";
         return super.toString() + String.format("Resistência a água: %s <br>Cor: %s", res, this.getCor());
-//        return super.toString() + String.format();
+//        return super.toString() + String.format(); //retornava string com todos os atributod
     }
 }

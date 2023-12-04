@@ -19,7 +19,7 @@ public class Principal {
         MenuInicial menuInicial = new MenuInicial();
     }
         public static void  setarLookAndFeel(){
-            try {
+            try { //caso nao ache o design nimbus
                 // Verifica se o Nimbus está disponível
                 for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                     if ("Nimbus".equals(info.getName())) {
@@ -29,7 +29,7 @@ public class Principal {
                     }
                 }
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
-                // Trata exceções relacionadas ao look and feel
+                // Trata exceções relacionadas ao look and feel -
                 e.printStackTrace();
             }
         }

@@ -35,7 +35,7 @@ public class Loja{
     }
   }
 
-  public void criarProduto(String nome, double preco, String fabricante, int estoque, String tarja, Boolean resAgua, String cor, Integer tamPacote, int num) { //o inserir produto do funcionario
+  public void criarProduto(String nome, double preco, String fabricante, int estoque, String tarja, Boolean resAgua, String cor, Integer tamPacote, int num) {
     switch(num) {
       case 1:
         Remedios remedio = new Remedios(nome, preco, estoque, fabricante, tarja);
