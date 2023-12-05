@@ -130,7 +130,21 @@ public class MenuListarProdutos extends JFrame implements ListSelectionListener,
 
         } else if (e.getSource() == modificarButton) {
             if(cliente != null)
-                especificarLista = 0; //Nesse caso o modificarButton vira a opção para ver a loja
+                especificarLista = 0; //Nesse caso o modificarButton vira a opção para ver a loja+
+            else{
+                Produtos produtoSelecionado = null;
+                for (Produtos produtos : loja.getListaProdutos()){
+                    if(produtoASelecionado.equalsIgnoreCase(produtos.getNome())) {
+                        produtoSelecionado = produtos;
+                        break;
+                    }
+                }
+                String classe = produtoSelecionado.getClass().getSimpleName();
+                System.out.println("Classe 1 - " + classe);
+
+                MenuAdicionarProdutos menuModificarProdutos = new MenuAdicionarProdutos(produtoSelecionado,classe,this.loja);
+
+            }
             listarProdutos(especificarLista);
         }
         else if(e.getSource() == verCarrinhoButton){

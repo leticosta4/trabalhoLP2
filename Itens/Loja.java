@@ -52,5 +52,21 @@ public class Loja{
     }
   }
 
+  public void modificarProduto(String nome, double preco, String fabricante, int estoque, String tarja, Boolean resAgua, String cor, Integer tamPacote, Produtos p){
+    p.setNome(nome);
+    p.setEstoque(estoque);
+    p.setFabricante(fabricante);
+    p.setPreco(preco);
+
+    if(p instanceof Remedios){
+      ((Remedios) p).setTarja(tarja);
+    } else if (p instanceof Cosmeticos) {
+      ((Cosmeticos) p).setCor(cor);
+      ((Cosmeticos) p).setResistenciaAgua(resAgua);
+    } else if (p instanceof Higienicos) {
+      ((Higienicos) p).setUnidadesPacote(tamPacote);
+    }
+
+  }
 
 }

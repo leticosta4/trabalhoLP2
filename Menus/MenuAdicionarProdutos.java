@@ -1,8 +1,10 @@
 package Menus;
 
 import Itens.Loja;
+import Itens.Produtos;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -30,12 +32,24 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener , Ke
     private JLabel informacao;
     private JButton confirmar;
     private JButton sairButton;
+    Produtos modificar = null;
 
     Loja let = new Loja();
 
     public MenuAdicionarProdutos(Loja loja) {
         this.let = loja;
         adicionarComponentes();
+        limparTexto();
+    }
+
+    public MenuAdicionarProdutos(Produtos p, String classeRecebida, Loja loja) {
+        this.let = loja;
+        this.modificar = p;
+        adicionarComponentes();
+        this.tiposProdutosBox.setVisible(false);
+        setarProdutosBox(classeRecebida);
+        limparTexto();
+
     }
 
     private void adicionarComponentes() {
@@ -60,50 +74,27 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener , Ke
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == tiposProdutosBox || e.getSource() == confirmar) {
+        if ((e.getSource() == tiposProdutosBox || e.getSource() == confirmar)) {
             String selectedOption = (String) tiposProdutosBox.getSelectedItem();
             // Verifica a opção selecionada e ajusta a visibilidade dos rótulos
             if (selectedOption != null) {
                 switch (selectedOption) {
                     case "Remédios" -> {
-                        tarja.setVisible(true);
-                        tarjaBox.setVisible(true);
-                        resistenciaAgua.setVisible(false);
-                        resistenciaAguaBox.setVisible(false);
-                        tamanho.setVisible(false);
-                        tamanhoProdutoText.setVisible(false);
-                        corProdutoText.setVisible(false);
-                        cor.setVisible(false);
+                       liberarOpcoesRemedio();
                         if (e.getSource() == confirmar) {
                             pegarTexto(1);
                             JOptionPane.showMessageDialog(confirmar, "Produto Adicionado Com Sucesso");
                         }
                     }
                     case "Cosméticos" -> {
-                        tarja.setVisible(false);
-                        tarjaBox.setVisible(false);
-                        resistenciaAgua.setVisible(true);
-                        resistenciaAguaBox.setVisible(true);
-                        tamanho.setVisible(false);
-                        tamanhoProdutoText.setVisible(false);
-                        corProdutoText.setVisible(true);
-                        cor.setVisible(true);
+                        liberarOpcoesCosmeticos();
                         if (e.getSource() == confirmar) {
                             pegarTexto(2);
                             JOptionPane.showMessageDialog(confirmar, "Produto Adicionado Com Sucesso");
-
-
                         }
                     }
                     case "Higiênicos" -> {
-                        tarja.setVisible(false);
-                        tarjaBox.setVisible(false);
-                        resistenciaAgua.setVisible(false);
-                        resistenciaAguaBox.setVisible(false);
-                        tamanho.setVisible(true);
-                        tamanhoProdutoText.setVisible(true);
-                        corProdutoText.setVisible(false);
-                        cor.setVisible(false);
+                        liberarOpcoesHigienicos();
                         if (e.getSource() == confirmar) {
                             pegarTexto(3);
                             JOptionPane.showMessageDialog(confirmar, "Produto Adicionado Com Sucesso");
@@ -114,7 +105,7 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener , Ke
                 limparTexto();
                 this.pack();
             }
-        } else if (e.getSource() == sairButton) {
+        }  else if (e.getSource() == sairButton) {
             dispose();
         }
     }
@@ -124,24 +115,57 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener , Ke
         double preco  =  Double.parseDouble(precoProdutoText.getText());
         String fabricante = fabricanteProdutoText.getText();
         int estoque = Integer.parseInt(estoqueProdutoText.getText());
+        String tarja = "";
+        String cor = "";
+        String resistenciaAgua = "";
+        Boolean resistenciaAguaBoolean = false;
+        int tamanho = 0;
 
-        switch(num){
+
+        System.out.printf("Num - %d\nPreco = %f\nNome = %s\nfabricnte = %s\nestoque = %d\ntarja %s\n,cor %s\nresAgua %b,Tamnanho %d\n",num,preco,nomeProd,fabricante,estoque,tarja,cor,resistenciaAguaBoolean,tamanho);
+    if(modificar == null) {
+        switch (num) {
             case 1:
-                String tarja = tarjaBox.getSelectedItem().toString();
-                this.let.criarProduto(nomeProd,preco,fabricante,estoque,tarja,null,null,null,num);
+                tarja = tarjaBox.getSelectedItem().toString();
+                this.let.criarProduto(nomeProd, preco, fabricante, estoque, tarja, null, null, null, num);
                 break;
             case 2:
-                String resistenciaAgua = resistenciaAguaBox.getSelectedItem().toString();
-                boolean resistenciaAguaBoolean = resistenciaAgua.equals("Sim");
-                String cor = corProdutoText.getText();
-                this.let.criarProduto(nomeProd,preco,fabricante,estoque,null, resistenciaAguaBoolean,cor, null,num);
+                cor = corProdutoText.getText();
+                resistenciaAgua = resistenciaAguaBox.getSelectedItem().toString();
+                resistenciaAguaBoolean = resistenciaAgua.equals("Sim");
+                this.let.criarProduto(nomeProd, preco, fabricante, estoque, null, resistenciaAguaBoolean, cor, null, num);
                 break;
             case 3:
-                int tamanho = Integer.parseInt(tamanhoProdutoText.getText());
-                this.let.criarProduto(nomeProd,preco,fabricante,estoque,null,null,null,tamanho,num);
+                tamanho = Integer.parseInt(tamanhoProdutoText.getText());
+                this.let.criarProduto(nomeProd, preco, fabricante, estoque, null, null, null, tamanho, num);
                 break;
         }
     }
+    else{
+        System.out.println("Entrei no else");
+        String classeModificara = modificar.getClass().getSimpleName();
+        System.out.println("Nome simples -" + classeModificara);
+        if((classeModificara.contains("Remedio"))) {
+            System.out.println("Aqui é rem");
+            tarja = tarjaBox.getSelectedItem().toString();
+        }
+        else if(classeModificara.contains("Cosmetico")) {
+            System.out.println("Aqui é cosm");
+            cor = corProdutoText.getText();
+            resistenciaAgua = resistenciaAguaBox.getSelectedItem().toString();
+            resistenciaAguaBoolean = resistenciaAgua.equals("Sim");
+        }
+        else if(classeModificara.contains("Higienico")) {
+            System.out.println("Aqui é hig");
+            tamanho = Integer.parseInt(tamanhoProdutoText.getText());
+        }
+
+        this.let.modificarProduto(nomeProd,preco,fabricante,estoque,tarja,resistenciaAguaBoolean,cor,tamanho, modificar);
+    }
+
+            }
+
+
 
 
         private void limparTexto(){
@@ -175,5 +199,53 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener , Ke
     @Override
     public void keyReleased(KeyEvent e) {
 
+    }
+
+    private void setarProdutosBox(String nomeClasse){
+        System.out.println("Classe ------" + nomeClasse);
+        if(nomeClasse.contains("Cosmeticos")){
+            System.out.println("COs");
+            liberarOpcoesCosmeticos();
+        }
+        else if (nomeClasse.contains("Remedios")) {
+            System.out.println("Rem");
+            liberarOpcoesRemedio();
+        }
+        else if(nomeClasse.contains("Higienicos")){
+            System.out.println("Hig");
+            liberarOpcoesHigienicos();
+        }
+    }
+
+    private void liberarOpcoesRemedio(){
+        tarja.setVisible(true);
+        tarjaBox.setVisible(true);
+        resistenciaAgua.setVisible(false);
+        resistenciaAguaBox.setVisible(false);
+        tamanho.setVisible(false);
+        tamanhoProdutoText.setVisible(false);
+        corProdutoText.setVisible(false);
+        cor.setVisible(false);
+    }
+
+    private void liberarOpcoesHigienicos(){
+        tarja.setVisible(false);
+        tarjaBox.setVisible(false);
+        resistenciaAgua.setVisible(false);
+        resistenciaAguaBox.setVisible(false);
+        tamanho.setVisible(true);
+        tamanhoProdutoText.setVisible(true);
+        corProdutoText.setVisible(false);
+        cor.setVisible(false);
+    }
+    private void liberarOpcoesCosmeticos(){
+        tarja.setVisible(false);
+        tarjaBox.setVisible(false);
+        resistenciaAgua.setVisible(true);
+        resistenciaAguaBox.setVisible(true);
+        tamanho.setVisible(false);
+        tamanhoProdutoText.setVisible(false);
+        corProdutoText.setVisible(true);
+        cor.setVisible(true);
     }
 }
