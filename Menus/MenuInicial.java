@@ -62,7 +62,6 @@ public class MenuInicial extends JFrame implements ActionListener{
         if(e.getSource() == clienteButton){
             JOptionPane.showMessageDialog(clienteButton, "Indo para menu do cliente");
             MenuCliente menuCliente = new MenuCliente(let);
-            this.setVisible(false);
         } else if (e.getSource() == funcionarioButton) {
             JOptionPane.showMessageDialog(funcionarioButton, "Indo para login do funcionário");
             MenuLogin menuLogin = new MenuLogin(let);
