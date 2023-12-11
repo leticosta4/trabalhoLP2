@@ -61,6 +61,7 @@ public class Loja{
     if(p instanceof Remedios){
       ((Remedios) p).setTarja(tarja);
     } else if (p instanceof Cosmeticos) {
+      p.setPreco(preco * 1.40);
       ((Cosmeticos) p).setCor(cor);
       ((Cosmeticos) p).setResistenciaAgua(resAgua);
     } else if (p instanceof Higienicos) {

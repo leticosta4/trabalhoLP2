@@ -49,6 +49,7 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener , Ke
         this.tiposProdutosBox.setVisible(false);
         setarProdutosBox(classeRecebida);
         limparTexto();
+        this.pack();
 
     }
 
@@ -145,6 +146,7 @@ public class MenuAdicionarProdutos extends JFrame implements ActionListener , Ke
         System.out.println("Entrei no else");
         String classeModificara = modificar.getClass().getSimpleName();
         System.out.println("Nome simples -" + classeModificara);
+
         if((classeModificara.contains("Remedio"))) {
             System.out.println("Aqui é rem");
             tarja = tarjaBox.getSelectedItem().toString();

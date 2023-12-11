@@ -10,7 +10,7 @@ public class Cosmeticos extends Produtos {
         this.resistenciaAgua = resistenciaAgua;
         this.cor = cor;
 
-        this.setPreco(calcValor());
+        this.setPreco(calcPreco());
     }
 
     public boolean isResistenciaAgua() {
@@ -29,9 +29,10 @@ public class Cosmeticos extends Produtos {
         this.cor = cor;
     }
 
-    public double calcValor(){
+    @Override
+    public double calcPreco() {
         return this.resistenciaAgua? this.getPreco() * 1.30: this.getPreco();
-    } //if ternario (mais caro se for resistente a agua)
+    }
 
     @Override
     public String toString() {

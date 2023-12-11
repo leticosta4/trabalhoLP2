@@ -20,10 +20,13 @@ public class Higienicos extends Produtos {
         this.unidadesPacote = unidadesPacote;
     } //trocando tamanho por unidade
 
-
+    @Override
     public double calcPreco(){
         return this.getPreco() * this.unidadesPacote;
     }
+
+
+
 
     @Override
     public String toString() {
